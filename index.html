@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Jasur va Madina — nikoh to'yi taklifnomasi · 21.11.2026">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jasur & Madina · 21.11.2026">
+<meta property="og:description" content="Sizni to'yimizga taklif qilamiz! · Приглашаем вас на нашу свадьбу!">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Шаблоны Taklifnoma</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&family=Prata&family=Lora:ital,wght@0,400;0,500;1,400&family=Forum&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+/* Layout: a single phone-width invitation column centred on the template's own ground; a slim demo bar on top switches template, language and online/print view. Each template is its own visual world (single look, not light/dark). */
+:root{
+  --bar-bg:#1E1D1B; --bar-fg:#F2EFE8; --bar-muted:#A39E93; --bar-on:#F2EFE8; --bar-on-fg:#1E1D1B;
+  --ground:#E9E4DA;
+  --paper:#F6F3EC; --surface:#FFFFFF; --ink:#2B2A28; --muted:#7A746A; --accent:#9C8A67; --gold:#9C8A67; --line:#D9D1C2;
+  --btn-fg:#FFFFFF;
+  --f-display:"Cormorant Garamond", "Times New Roman", serif;
+  --f-body:"Manrope", "Helvetica Neue", Arial, sans-serif;
+  --names-size:clamp(2.6rem, 11vw, 3.4rem);
+  --names-style:italic; --names-weight:500;
+  color-scheme:light;
+}
+:root[data-tpl="suzani"]{
+  --ground:#E6D6BE;
+  --paper:#F3EADB; --surface:#FBF5EA; --ink:#3A1E1E; --muted:#7D5A50; --accent:#A3262E; --gold:#B8893B; --line:#E1CDB0;
+  --f-display:"Prata", Georgia, serif; --f-body:"Lora", Georgia, serif;
+  --names-size:clamp(2.2rem, 9.5vw, 2.9rem); --names-style:normal; --names-weight:400;
+}
+:root[data-tpl="samarqand"]{
+  --ground:#0A1E45;
+  --paper:#0F2A5C; --surface:#163670; --ink:#F4EBD8; --muted:#B9C4DA; --accent:#3FB6B0; --gold:#D4A64A; --line:rgba(212,166,74,.45);
+  --btn-fg:#0F2A5C;
+  --f-display:"Forum", Georgia, serif; --f-body:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --names-size:clamp(2.5rem, 10.5vw, 3.2rem); --names-style:normal; --names-weight:400;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;transition:background .4s}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- demo bar ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--bar-bg);color:var(--bar-fg);
+  padding-top:calc(8px + env(safe-area-inset-top,0px));padding-bottom:8px;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
+  display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center;font-family:"Manrope",Arial,sans-serif;font-size:13px}
+.bar .grp{display:flex;align-items:center;gap:4px}
+.bar .lbl{color:var(--bar-muted);margin-right:4px;font-size:12px;letter-spacing:.04em}
+.bar button{background:transparent;border:1px solid #4A4842;color:var(--bar-fg);border-radius:999px;padding:4px 11px;cursor:pointer;font-size:12.5px}
+.bar button[aria-pressed="true"]{background:var(--bar-on);color:var(--bar-on-fg);border-color:var(--bar-on)}
+.spacer{height:calc(96px + env(safe-area-inset-top,0px))}
+@media (min-width:720px){.spacer{height:calc(56px + env(safe-area-inset-top,0px))}}
+
+/* ---------- invitation column ---------- */
+.wrap{padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:0 48px}
+.card{max-width:440px;margin:0 auto;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.sec{padding:44px 28px;text-align:center;position:relative}
+.sec + .sec{border-top:1px solid var(--line)}
+.kicker{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.h2{font-family:var(--f-display);font-weight:500;font-size:1.75rem;line-height:1.2;margin:6px 0 18px;text-wrap:balance;color:var(--ink)}
+:root[data-tpl="suzani"] .h2{color:var(--accent);font-weight:400;font-size:1.55rem}
+:root[data-tpl="samarqand"] .h2{color:var(--gold);font-weight:400;font-size:1.8rem;letter-spacing:.02em}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+
+/* hero */
+.hero{padding-top:56px;padding-bottom:52px}
+.names{font-family:var(--f-display);font-size:var(--names-size);font-style:var(--names-style);font-weight:var(--names-weight);line-height:1.05;margin:18px 0 6px;text-wrap:balance}
+.names .amp{display:block;font-size:.55em;color:var(--accent);margin:.15em 0;font-style:italic}
+:root[data-tpl="samarqand"] .names .amp{color:var(--gold)}
+.hero-date{font-family:var(--f-display);font-size:1.35rem;letter-spacing:.18em;margin-top:18px}
+.hero-day{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.orn{display:block;margin:0 auto;pointer-events:none}
+.corner{position:absolute;width:110px;height:110px;pointer-events:none}
+.corner.tl{top:-34px;left:-34px}.corner.tr{top:-34px;right:-34px}
+.corner.bl{bottom:-34px;left:-34px}.corner.br{bottom:-34px;right:-34px}
+.arch{position:absolute;inset:14px 14px 14px 14px;pointer-events:none}
+.band{height:26px;width:100%;display:block}
+.divider{display:flex;justify-content:center;margin:0 0 14px}
+
+/* calendar */
+.cal{max-width:300px;margin:0 auto}
+.cal-month{font-family:var(--f-display);font-size:1.3rem;margin-bottom:10px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-variant-numeric:tabular-nums}
+.cal-grid .wd{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;padding-bottom:4px}
+.cal-grid .d{height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;position:relative}
+.cal-grid .d.on{color:var(--btn-fg);font-weight:600}
+.cal-grid .d.on::before{content:"";position:absolute;width:34px;height:34px;border-radius:50%;background:var(--accent);z-index:0}
+:root[data-tpl="samarqand"] .cal-grid .d.on::before{background:var(--gold)}
+.cal-grid .d.on span{position:relative;z-index:1}
+.time-line{margin-top:16px;font-family:var(--f-display);font-size:1.25rem}
+
+/* countdown */
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:320px;margin:0 auto;font-variant-numeric:tabular-nums}
+.cd div{background:var(--surface);border:1px solid var(--line);padding:12px 4px 8px}
+.cd b{display:block;font-family:var(--f-display);font-weight:500;font-size:1.7rem;line-height:1}
+.cd small{font-size:11px;letter-spacing:.06em;color:var(--muted)}
+
+/* venue */
+.venue-name{font-family:var(--f-display);font-size:1.45rem;line-height:1.25;margin-bottom:6px}
+.maps{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;text-decoration:none;cursor:pointer;
+  border:1px solid var(--accent);color:var(--accent);background:transparent;font-size:14px;font-weight:500}
+:root[data-tpl="samarqand"] .btn{border-color:var(--gold);color:var(--gold)}
+.btn.solid{background:var(--accent);color:var(--btn-fg)}
+:root[data-tpl="samarqand"] .btn.solid{background:var(--gold);color:var(--btn-fg)}
+:root[data-tpl="ivory"] .btn.solid{background:var(--ink);border-color:var(--ink);color:#fff}
+:root[data-tpl="ivory"] .btn{border-color:var(--ink);color:var(--ink)}
+
+/* program */
+.prog{list-style:none;margin:0 auto;padding:0;max-width:300px;text-align:left}
+.prog li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.prog li:last-child{border-bottom:0}
+.prog time{font-family:var(--f-display);font-size:1.15rem;color:var(--accent);font-variant-numeric:tabular-nums}
+:root[data-tpl="samarqand"] .prog time{color:var(--gold)}
+
+/* dress */
+.swatches{display:flex;justify-content:center;gap:10px;margin-top:14px}
+.swatches span{width:34px;height:34px;border-radius:50%;border:1px solid var(--line)}
+
+/* rsvp */
+form{display:grid;gap:14px;text-align:left;max-width:320px;margin:0 auto}
+label.f{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+input[type=text],input[type=number],textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:15px;color:var(--ink)}
+textarea{min-height:70px;resize:vertical}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;color:var(--ink);font-size:14.5px}
+.opt input{accent-color:var(--accent);width:18px;height:18px;margin:0}
+:root[data-tpl="samarqand"] .opt input{accent-color:var(--gold)}
+.opt:has(input:checked){border-color:var(--accent)}
+:root[data-tpl="samarqand"] .opt:has(input:checked){border-color:var(--gold)}
+.err{color:#C0392B;font-size:13px;min-height:1em}
+:root[data-tpl="samarqand"] .err{color:#FF9C8A}
+.thanks{max-width:320px;margin:0 auto;background:var(--surface);border:1px solid var(--line);padding:22px;border-radius:12px}
+.thanks b{font-family:var(--f-display);font-size:1.4rem;font-weight:500;display:block;margin-bottom:6px}
+
+/* contacts */
+.contacts{display:grid;gap:10px;max-width:320px;margin:0 auto}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:left}
+.contact small{display:block;color:var(--muted);font-size:12px}
+.contact .num{font-variant-numeric:tabular-nums;user-select:all}
+.copy{border:0;background:transparent;color:var(--accent);cursor:pointer;font-size:12.5px;padding:6px}
+:root[data-tpl="samarqand"] .copy{color:var(--gold)}
+
+.final .names{font-size:calc(var(--names-size)*.75)}
+.brand{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:26px;opacity:.8}
+
+/* music button */
+.music{position:fixed;z-index:40;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.music svg{width:20px;height:20px}
+.music.playing svg{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* envelope cover */
+.cover{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;background:var(--ground);
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:calc(110px + env(safe-area-inset-top,0px)) 24px}
+.env{width:100%;max-width:380px;aspect-ratio:3/4;max-height:100%;position:relative;background:var(--paper);box-shadow:0 24px 70px rgba(0,0,0,.25);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+.flap{position:absolute;left:0;right:0;height:50%;background:var(--surface);transition:transform .9s cubic-bezier(.6,.05,.3,1)}
+.flap.top{top:0;clip-path:polygon(0 0,100% 0,50% 100%);border-bottom:0}
+.flap.bot{bottom:0;clip-path:polygon(0 100%,100% 100%,50% 0);opacity:.6}
+.seal{position:relative;z-index:2;width:86px;height:86px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--btn-fg);
+  font-family:var(--f-display);font-size:1.6rem;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+:root[data-tpl="samarqand"] .seal{background:var(--gold)}
+:root[data-tpl="ivory"] .seal{background:var(--ink);color:#fff}
+.env-text{position:relative;z-index:2;margin-top:18px}
+.env-text .to{font-family:var(--f-display);font-size:1.5rem;margin:4px 0 16px}
+.cover.opening .flap.top{transform:translateY(-105%)}
+.cover.opening .flap.bot{transform:translateY(105%)}
+.cover.opening{transition:opacity .6s .6s;opacity:0}
+@media (prefers-reduced-motion:reduce){.flap,.cover.opening{transition:none}.music.playing svg{animation:none}}
+
+/* print preview */
+.print-wrap{max-width:520px;margin:0 auto;text-align:center;color:var(--ink)}
+:root[data-tpl="samarqand"] .print-wrap{color:var(--ink)}
+.print-meta{font-family:"Manrope",Arial,sans-serif;font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5}
+.sheet{display:inline-block;padding:12px;background:repeating-linear-gradient(45deg,rgba(0,0,0,.05) 0 6px,transparent 6px 12px);border:1px dashed rgba(0,0,0,.25);max-width:100%}
+:root[data-tpl="samarqand"] .sheet{border-color:rgba(255,255,255,.3);background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 6px,transparent 6px 12px)}
+.a6{width:min(380px, 78vw);aspect-ratio:105/148;max-width:100%;background:var(--paper);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:9% 9% 7%;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.a6 .safe{position:absolute;inset:4.7%;border:1px dashed rgba(200,60,60,.45);pointer-events:none}
+.a6 .names{font-size:calc(min(380px,78vw)*.105);margin:6px 0 2px}
+.a6 .small{font-size:calc(min(380px,78vw)*.031);line-height:1.45;color:var(--muted)}
+.a6 .dt{font-family:var(--f-display);font-size:calc(min(380px,78vw)*.05);letter-spacing:.14em}
+.qr-plate{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);padding:6px 8px;background:var(--surface)}
+.qr-plate .qr{width:calc(min(380px,78vw)*.19);height:calc(min(380px,78vw)*.19);background:#fff;padding:3px;flex:none}
+.qr-plate .qr svg{width:100%;height:100%;display:block}
+.qr-plate span{font-size:calc(min(380px,78vw)*.027);line-height:1.35;color:var(--ink)}
+.legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:12px;font-family:"Manrope",Arial,sans-serif;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:0;border-top:1px dashed rgba(200,60,60,.7);vertical-align:middle;margin-right:6px}
+</style>
+</head>
+<body>
+
+<div class="bar" role="toolbar" aria-label="Настройки демо">
+  <div class="grp"><span class="lbl">Шаблон</span>
+    <button type="button" data-tpl="ivory" aria-pressed="true">Ivory</button>
+    <button type="button" data-tpl="suzani" aria-pressed="false">Suzani</button>
+    <button type="button" data-tpl="samarqand" aria-pressed="false">Samarqand</button>
+  </div>
+  <div class="grp"><span class="lbl">Язык</span>
+    <button type="button" data-lang="uz" aria-pressed="true">UZ</button>
+    <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+  </div>
+  <div class="grp"><span class="lbl">Вид</span>
+    <button type="button" data-view="online" aria-pressed="true">Онлайн</button>
+    <button type="button" data-view="print" aria-pressed="false">Печать</button>
+    <button type="button" id="reenv" title="Показать конверт снова">Конверт</button>
+  </div>
+</div>
+<div class="spacer"></div>
+
+<main class="wrap" id="app"></main>
+
+<div class="cover" id="cover" aria-modal="true" role="dialog" aria-label="Taklifnoma">
+  <div class="env">
+    <div class="flap top"></div><div class="flap bot"></div>
+    <div class="seal" id="seal">J&amp;M</div>
+    <div class="env-text">
+      <div class="kicker" id="envKicker"></div>
+      <div class="to" id="envTo"></div>
+      <button type="button" class="btn solid" id="openBtn"></button>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="music" id="music" aria-label="Музыка" hidden>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+(function(){
+const EVENT = new Date("2026-11-21T18:00:00+05:00");
+const LINK = "https://example.com/jasur-madina";
+const state = {tpl:"ivory", lang:"uz", view:"online", rsvp:null};
+
+const T = {
+uz:{
+  envKicker:"Taklifnoma", envTo:"Hurmatli mehmon!", open:"Ochish",
+  kicker:"Nikoh to’yi", g:"Jasur", b:"Madina", amp:"va", day:"Shanba",
+  dear:"Aziz mehmonlar!",
+  text:"Hayotimizdagi eng baxtli kunlardan birini siz bilan birga nishonlashni istaymiz. Sizni farzandlarimiz Jasur va Madinaning nikoh to’yi tantanasiga taklif qilamiz.",
+  sign:"Hurmat bilan, Karimovlar va Rahimovlar oilasi",
+  dateH:"To’y sanasi", month:"Noyabr 2026", wd:["Du","Se","Ch","Pa","Ju","Sh","Ya"], start:"Boshlanishi 18:00 da",
+  cdH:"To’ygacha qoldi", cd:["kun","soat","daqiqa","soniya"], cdDone:"Bizni tabriklaganingiz uchun rahmat!",
+  venueH:"Manzil", venue:"«Gulzor» to’yxonasi, Oltin zal", addr:"Toshkent sh., Yunusobod tumani",
+  progH:"To’y dasturi", prog:[["17:30","Mehmonlarni kutib olish"],["18:00","Tantana boshlanishi"],["19:00","Bazm va raqslar"],["22:30","Yakuniy so’z"]],
+  dressH:"Kiyinish uslubi", dress:"Klassik uslub. Iltimos, oq rangli kiyimdan saqlaning — u kelin uchun.",
+  rsvpH:"Ishtirokingizni tasdiqlang", rsvpSub:"15-noyabrgacha javob bersangiz, xursand bo’lamiz",
+  name:"Ismingiz", namePh:"Masalan, Aziz Karimov",
+  o1:"Albatta boraman", o2:"Oilam bilan boraman", o3:"Afsuski, bora olmayman",
+  count:"Necha kishi bo’lasiz?", comment:"Izoh (ixtiyoriy)", send:"Yuborish",
+  errName:"Ismingizni yozing.", errOpt:"Javob variantini tanlang.",
+  thx:"Rahmat!", thxYes:"Javobingiz qabul qilindi. Sizni kutamiz!", thxNo:"Javobingiz qabul qilindi. Sizni sog’inib qolamiz.", again:"Javobni o’zgartirish",
+  contactsH:"Aloqa", c1:"Kuyov tomoni", c2:"Kelin tomoni", copy:"Nusxa", copied:"Nusxalandi",
+  fin:"Sizni kutamiz!",
+  printKick:"Nikoh to’yi", printText:"Sizni farzandlarimizning nikoh to’yiga taklif qilamiz", qr:"Ishtirokni tasdiqlang va xaritani ko’ring",
+},
+ru:{
+  envKicker:"Приглашение", envTo:"Дорогой гость!", open:"Открыть",
+  kicker:"Свадебное торжество", g:"Жасур", b:"Мадина", amp:"и", day:"Суббота",
+  dear:"Дорогие гости!",
+  text:"Мы хотим разделить с вами один из самых счастливых дней нашей жизни. Приглашаем вас на свадебное торжество наших детей Жасура и Мадины.",
+  sign:"С уважением, семьи Каримовых и Рахимовых",
+  dateH:"Дата торжества", month:"Ноябрь 2026", wd:["Пн","Вт","Ср","Чт","Пт","Сб","Вс"], start:"Начало в 18:00",
+  cdH:"До торжества осталось", cd:["дней","часов","минут","секунд"], cdDone:"Спасибо, что были с нами!",
+  venueH:"Место", venue:"Тойхона «Гулзор», Золотой зал", addr:"г. Ташкент, Юнусабадский район",
+  progH:"Программа", prog:[["17:30","Встреча гостей"],["18:00","Начало торжества"],["19:00","Банкет и танцы"],["22:30","Завершение вечера"]],
+  dressH:"Дресс-код", dress:"Классический стиль. Пожалуйста, избегайте белого — это цвет невесты.",
+  rsvpH:"Подтвердите присутствие", rsvpSub:"Будем рады ответу до 15 ноября",
+  name:"Ваше имя", namePh:"Например, Азиз Каримов",
+  o1:"Обязательно приду", o2:"Приду с семьёй", o3:"К сожалению, не смогу",
+  count:"Сколько вас будет?", comment:"Комментарий (необязательно)", send:"Отправить",
+  errName:"Напишите ваше имя.", errOpt:"Выберите вариант ответа.",
+  thx:"Спасибо!", thxYes:"Ваш ответ получен. Ждём вас!", thxNo:"Ваш ответ получен. Будем скучать.", again:"Изменить ответ",
+  contactsH:"Контакты", c1:"Сторона жениха", c2:"Сторона невесты", copy:"Копировать", copied:"Скопировано",
+  fin:"Ждём вас!",
+  printKick:"Свадебное торжество", printText:"Приглашаем вас на свадебное торжество наших детей", qr:"Подтвердите присутствие и посмотрите карту",
+}};
+
+/* ---------- ornaments ---------- */
+function rosette(size, c1, c2, c3){
+  let p="";
+  for(let i=0;i<12;i++){p+=`<ellipse cx="50" cy="24" rx="7" ry="17" fill="${c1}" transform="rotate(${i*30} 50 50)"/>`}
+  for(let i=0;i<12;i++){p+=`<ellipse cx="50" cy="31" rx="4" ry="9" fill="${c2}" transform="rotate(${i*30+15} 50 50)"/>`}
+  p+=`<circle cx="50" cy="50" r="15" fill="${c2}"/><circle cx="50" cy="50" r="11" fill="${c3}"/>`;
+  for(let i=0;i<8;i++){const a=i*Math.PI/4;p+=`<circle cx="${50+6*Math.cos(a)}" cy="${50+6*Math.sin(a)}" r="1.6" fill="${c1}"/>`}
+  return `<svg viewBox="0 0 100 100" width="${size}" height="${size}" aria-hidden="true">${p}</svg>`;
+}
+function pomegranate(size, c, g){
+  return `<svg viewBox="0 0 60 60" width="${size}" height="${size}" aria-hidden="true"><path d="M30 14c-12 0-20 9-20 21s9 19 20 19 20-7 20-19-8-21-20-21z" fill="${c}"/><path d="M24 15l2-7 4 4 4-4 2 7z" fill="${g}"/><circle cx="25" cy="34" r="2.2" fill="${g}"/><circle cx="33" cy="30" r="2.2" fill="${g}"/><circle cx="35" cy="39" r="2.2" fill="${g}"/><circle cx="27" cy="43" r="2.2" fill="${g}"/></svg>`;
+}
+function starBand(c, bg){
+  const id="st"+Math.random().toString(36).slice(2,7);
+  return `<svg class="band" viewBox="0 0 400 26" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="${id}" width="26" height="26" patternUnits="userSpaceOnUse"><rect width="26" height="26" fill="${bg}"/><g transform="translate(13 13)"><rect x="-6" y="-6" width="12" height="12" fill="none" stroke="${c}" stroke-width="1.2"/><rect x="-6" y="-6" width="12" height="12" fill="none" stroke="${c}" stroke-width="1.2" transform="rotate(45)"/><circle r="1.8" fill="${c}"/></g></pattern></defs><rect width="400" height="26" fill="url(#${id})"/></svg>`;
+}
+function arch(c){
+  return `<svg class="arch" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M8 296V112C8 58 60 22 100 8c40 14 92 50 92 104v184" fill="none" stroke="${c}" stroke-width="1.4" vector-effect="non-scaling-stroke"/><path d="M16 296V114C16 66 64 34 100 20c36 14 84 46 84 94v182" fill="none" stroke="${c}" stroke-width=".8" opacity=".6" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function sprig(c){
+  return `<svg viewBox="0 0 120 20" width="120" height="20" aria-hidden="true"><line x1="0" y1="10" x2="48" y2="10" stroke="${c}" stroke-width=".8"/><line x1="72" y1="10" x2="120" y2="10" stroke="${c}" stroke-width=".8"/><circle cx="60" cy="10" r="3.2" fill="none" stroke="${c}" stroke-width=".9"/><circle cx="52" cy="10" r="1.2" fill="${c}"/><circle cx="68" cy="10" r="1.2" fill="${c}"/></svg>`;
+}
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+function divider(){
+  if(state.tpl==="suzani") return `<div class="divider">${pomegranate(34, css("--accent"), css("--gold"))}</div>`;
+  if(state.tpl==="samarqand") return `<div class="divider"><svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><g transform="translate(20 20)" fill="none" stroke="${css("--gold")}" stroke-width="1.3"><rect x="-10" y="-10" width="20" height="20"/><rect x="-10" y="-10" width="20" height="20" transform="rotate(45)"/></g><circle cx="20" cy="20" r="3" fill="${css("--accent")}"/></svg></div>`;
+  return `<div class="divider">${sprig(css("--accent"))}</div>`;
+}
+function heroDecor(){
+  if(state.tpl==="suzani"){
+    const r=rosette(110, css("--accent"), css("--gold"), css("--paper"));
+    return `<div class="corner tl">${r}</div><div class="corner tr">${r}</div>`;
+  }
+  if(state.tpl==="samarqand") return arch(css("--gold"));
+  return "";
+}
+
+/* ---------- views ---------- */
+function calendar(t){
+  const y=2026,m=10,sel=21;
+  const first=(new Date(y,m,1).getDay()+6)%7, days=new Date(y,m+1,0).getDate();
+  let h=t.wd.map(w=>`<div class="wd">${w}</div>`).join("");
+  for(let i=0;i<first;i++) h+=`<div></div>`;
+  for(let d=1;d<=days;d++) h+=`<div class="d${d===sel?" on":""}"><span>${d}</span></div>`;
+  return `<div class="cal"><div class="cal-month">${t.month}</div><div class="cal-grid">${h}</div></div>`;
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function rsvpBlock(t){
+  if(state.rsvp){
+    const yes=state.rsvp.opt!=="o3";
+    return `<div class="thanks" role="status"><b>${t.thx}</b><p>${esc(state.rsvp.name)} — ${t[state.rsvp.opt]}${yes?" · "+state.rsvp.count:""}</p><p class="muted">${yes?t.thxYes:t.thxNo}</p><button type="button" class="btn" id="again">${t.again}</button></div>`;
+  }
+  return `<form id="rsvp" novalidate>
+    <label class="f" for="rn">${t.name}<input type="text" id="rn" autocomplete="name" placeholder="${t.namePh}"></label>
+    <div class="opts" role="radiogroup">
+      <label class="opt"><input type="radio" name="ro" id="ro1" value="o1">${t.o1}</label>
+      <label class="opt"><input type="radio" name="ro" id="ro2" value="o2">${t.o2}</label>
+      <label class="opt"><input type="radio" name="ro" id="ro3" value="o3">${t.o3}</label>
+    </div>
+    <label class="f" for="rc">${t.count}<input type="number" id="rc" min="1" max="20" value="1" inputmode="numeric"></label>
+    <label class="f" for="rm">${t.comment}<textarea id="rm"></textarea></label>
+    <div class="err" id="rerr" aria-live="polite"></div>
+    <button type="submit" class="btn solid">${t.send}</button>
+  </form>`;
+}
+
+function online(t){
+  const ini=t.g[0]+" & "+t.b[0];
+  return `<article class="card">
+    <section class="sec hero">${heroDecor()}
+      <div class="kicker">${t.kicker}</div>
+      <h1 class="names">${t.g}<span class="amp">${t.amp}</span>${t.b}</h1>
+      <div class="hero-date">21 · 11 · 2026</div>
+      <div class="hero-day">${t.day} · 18:00</div>
+    </section>
+    ${state.tpl==="samarqand"?starBand(css("--gold"),css("--paper")):""}
+    <section class="sec">${divider()}
+      <h2 class="h2">${t.dear}</h2>
+      <p>${t.text}</p>
+      <p class="muted" style="margin-top:16px;font-style:italic">${t.sign}</p>
+    </section>
+    <section class="sec"><div class="kicker">${t.dateH}</div><div style="height:12px"></div>${calendar(t)}<div class="time-line">${t.start}</div></section>
+    <section class="sec"><div class="kicker">${t.cdH}</div><div style="height:14px"></div><div class="cd" id="cd"></div></section>
+    <section class="sec">${divider()}<h2 class="h2">${t.venueH}</h2>
+      <div class="venue-name">${t.venue}</div><div class="muted">${t.addr}</div>
+      <div class="maps">
+        <a class="btn" href="https://yandex.uz/maps/?text=${encodeURIComponent("Ташкент Юнусабад тойхона")}" target="_blank" rel="noopener">Yandex</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Tashkent Yunusabad wedding hall")}" target="_blank" rel="noopener">Google</a>
+        <a class="btn" href="https://2gis.uz/tashkent/search/${encodeURIComponent("тойхона Юнусабад")}" target="_blank" rel="noopener">2GIS</a>
+      </div>
+    </section>
+    <section class="sec"><h2 class="h2">${t.progH}</h2>
+      <ol class="prog">${t.prog.map(p=>`<li><time>${p[0]}</time><span>${p[1]}</span></li>`).join("")}</ol>
+    </section>
+    <section class="sec"><h2 class="h2">${t.dressH}</h2><p>${t.dress}</p>
+      <div class="swatches" aria-hidden="true"><span style="background:#1F2A44"></span><span style="background:#6B4E3D"></span><span style="background:#8A9A7B"></span><span style="background:#B79C7A"></span><span style="background:#2E2E2E"></span></div>
+    </section>
+    ${state.tpl==="samarqand"?starBand(css("--gold"),css("--paper")):""}
+    <section class="sec" id="rsvpSec">${divider()}<h2 class="h2">${t.rsvpH}</h2><p class="muted" style="margin-bottom:20px">${t.rsvpSub}</p><div id="rsvpBox">${rsvpBlock(t)}</div></section>
+    <section class="sec"><h2 class="h2">${t.contactsH}</h2>
+      <div class="contacts">
+        <div class="contact"><div><small>${t.c1}</small>Botir · <span class="num">+998 90 123 45 67</span></div><button type="button" class="copy" data-num="+998901234567">${t.copy}</button></div>
+        <div class="contact"><div><small>${t.c2}</small>Nodira · <span class="num">+998 93 765 43 21</span></div><button type="button" class="copy" data-num="+998937654321">${t.copy}</button></div>
+      </div>
+    </section>
+    <section class="sec final">${divider()}<div class="h2" style="margin-bottom:4px">${t.fin}</div>
+      <div class="names">${ini}</div>
+      <div class="brand">taklifnoma · demo</div>
+    </section>
+  </article>`;
+}
+
+function qrSvg(){
+  try{ const q=qrcode(0,"M"); q.addData(LINK); q.make(); return q.createSvgTag({cellSize:4,margin:0,scalable:true}); }
+  catch(e){ return `<svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#ddd"/></svg>`; }
+}
+function print(t){
+  return `<div class="print-wrap">
+    <p class="print-meta">Печатная версия в стиле выбранного шаблона · открытка A6, 105×148 мм · PDF для типографии — 100 000 сум</p>
+    <div class="sheet"><div class="a6">
+      <div class="safe" aria-hidden="true"></div>
+      ${state.tpl==="suzani"?`<div class="corner tl" style="width:90px;height:90px;top:-28px;left:-28px">${rosette(90,css("--accent"),css("--gold"),css("--paper"))}</div><div class="corner br" style="width:90px;height:90px;bottom:-28px;right:-28px">${rosette(90,css("--accent"),css("--gold"),css("--paper"))}</div>`:""}
+      ${state.tpl==="samarqand"?arch(css("--gold")):""}
+      <div style="position:relative">
+        <div class="kicker" style="font-size:calc(min(380px,78vw)*.027)">${t.printKick}</div>
+        <div class="names">${t.g}<span class="amp">${t.amp}</span>${t.b}</div>
+        <div class="small">${t.printText}</div>
+      </div>
+      <div style="position:relative">
+        <div class="dt">21 · 11 · 2026</div>
+        <div class="small">${t.day}, 18:00 · ${t.venue}<br>${t.addr}</div>
+      </div>
+      <div class="qr-plate" style="position:relative"><div class="qr">${qrSvg()}</div><span>${t.qr}</span></div>
+    </div></div>
+    <div class="legend"><span><i></i>безопасная зона 5 мм</span><span>вылеты 3 мм добавляются при выгрузке</span></div>
+  </div>`;
+}
+
+/* ---------- render ---------- */
+const app=document.getElementById("app");
+function render(){
+  const t=T[state.lang];
+  document.documentElement.setAttribute("data-tpl",state.tpl);
+  document.documentElement.lang=state.lang;
+  app.innerHTML = state.view==="online" ? online(t) : print(t);
+  document.getElementById("envKicker").textContent=t.envKicker;
+  document.getElementById("envTo").textContent=t.envTo;
+  document.getElementById("openBtn").textContent=t.open;
+  document.getElementById("seal").textContent=t.g[0]+"&"+t.b[0];
+  document.querySelectorAll(".bar [data-tpl]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.tpl===state.tpl));
+  document.querySelectorAll(".bar [data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===state.lang));
+  document.querySelectorAll(".bar [data-view]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.view===state.view));
+  bind(); tick();
+}
+function bind(){
+  const t=T[state.lang];
+  const f=document.getElementById("rsvp");
+  if(f) f.addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=document.getElementById("rn").value.trim();
+    const opt=(f.querySelector("input[name=ro]:checked")||{}).value;
+    const err=document.getElementById("rerr");
+    if(!name){err.textContent=t.errName;document.getElementById("rn").focus();return}
+    if(!opt){err.textContent=t.errOpt;return}
+    state.rsvp={name,opt,count:Math.max(1,parseInt(document.getElementById("rc").value,10)||1)};
+    document.getElementById("rsvpBox").innerHTML=rsvpBlock(t); bind();
+  });
+  const ag=document.getElementById("again");
+  if(ag) ag.addEventListener("click",()=>{state.rsvp=null;document.getElementById("rsvpBox").innerHTML=rsvpBlock(t);bind()});
+  document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+    const done=()=>{b.textContent=t.copied;setTimeout(()=>b.textContent=t.copy,1500)};
+    try{navigator.clipboard.writeText(b.dataset.num).then(done,()=>{})}catch(e){}
+  }));
+}
+function tick(){
+  const el=document.getElementById("cd"); if(!el) return;
+  const t=T[state.lang]; let s=Math.floor((EVENT-Date.now())/1000);
+  if(s<=0){el.style.display="block";el.innerHTML=`<p>${t.cdDone}</p>`;return}
+  const v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];
+  el.innerHTML=v.map((n,i)=>`<div><b>${String(n).padStart(2,"0")}</b><small>${t.cd[i]}</small></div>`).join("");
+}
+setInterval(tick,1000);
+
+document.querySelectorAll(".bar [data-tpl]").forEach(b=>b.addEventListener("click",()=>{state.tpl=b.dataset.tpl;render()}));
+document.querySelectorAll(".bar [data-lang]").forEach(b=>b.addEventListener("click",()=>{state.lang=b.dataset.lang;render()}));
+document.querySelectorAll(".bar [data-view]").forEach(b=>b.addEventListener("click",()=>{state.view=b.dataset.view;if(state.view==="print")closeCover(true);render()}));
+
+/* ---------- envelope + music ---------- */
+const cover=document.getElementById("cover"), musicBtn=document.getElementById("music");
+function closeCover(instant){
+  if(cover.hidden) return;
+  if(instant){cover.hidden=true;return}
+  cover.classList.add("opening");
+  setTimeout(()=>{cover.hidden=true;cover.classList.remove("opening")}, matchMedia("(prefers-reduced-motion: reduce)").matches?0:1200);
+}
+document.getElementById("openBtn").addEventListener("click",()=>{closeCover(false);musicBtn.hidden=false;startMusic()});
+document.getElementById("reenv").addEventListener("click",()=>{state.view="online";render();cover.hidden=false;window.scrollTo(0,0)});
+
+let ac=null, timer=null, step=0;
+const NOTES=[[57,64,69,72],[53,60,65,69],[55,62,67,71],[52,59,64,67]]; // Am F G Em arpeggios
+function midi(n){return 440*Math.pow(2,(n-69)/12)}
+function note(f,when,dur,vol){
+  const o=ac.createOscillator(), g=ac.createGain();
+  o.type="triangle"; o.frequency.value=f;
+  g.gain.setValueAtTime(0,when); g.gain.linearRampToValueAtTime(vol,when+.03); g.gain.exponentialRampToValueAtTime(.0008,when+dur);
+  o.connect(g); g.connect(ac.dest); o.start(when); o.stop(when+dur+.05);
+}
+function startMusic(){
+  try{
+    if(!ac){
+      ac=new (window.AudioContext||window.webkitAudioContext)();
+      const master=ac.createGain(); master.gain.value=.5;
+      const dl=ac.createDelay(); dl.delayTime.value=.33; const fb=ac.createGain(); fb.gain.value=.28;
+      master.connect(ac.destination); master.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(ac.destination);
+      ac.dest=master;
+    }
+    ac.resume();
+    if(timer) return;
+    timer=setInterval(()=>{
+      const ch=NOTES[Math.floor(step/6)%4], i=step%6, idx=[0,1,2,3,2,1][i], now=ac.currentTime+.05;
+      note(midi(ch[idx]+12),now,1.4,.12);
+      if(i===0) note(midi(ch[0]-12),now,2.6,.10);
+      step++;
+    },360);
+    musicBtn.classList.add("playing");
+  }catch(e){}
+}
+function stopMusic(){clearInterval(timer);timer=null;musicBtn.classList.remove("playing");try{ac&&ac.suspend()}catch(e){}}
+musicBtn.addEventListener("click",()=>{timer?stopMusic():startMusic()});
+
+render();
+})();
+</script>
+</body>
+</html>
