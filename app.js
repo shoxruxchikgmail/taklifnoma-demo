@@ -32,44 +32,178 @@ const ICON={
 const PRICE={base:250000,music:50000,photo:100000,print:100000};
 const back=(href,label)=>`<a class="back" href="${href}">${ICON.back} ${label}</a>`;
 
-/* ================= templates: layout × palette ================= */
-const STYLE_NAME={milliy:"Milliy",min:"Minimalizm",gul:"Gullar",klassika:"Klassika"};
-const COLOR_NAME={oq:"Светлые",qizil:"Красные",yashil:"Зелёные",kok:"Синие",pushti:"Розовые",oltin:"Золотые"};
-const LAY={
-  ivory:{name:"Ivory",style:"min",desc:"Сдержанный минимализм: много воздуха и тонкий орнамент ислими.",
-    pals:[{id:"fil",name:"Fil suyagi",c:"oq",v:{paper:"#F6F3EC",surface:"#FFFFFF",ink:"#2B2A28",muted:"#7A746A",accent:"#2B2A28",gold:"#B49A6A",line:"#DDD5C6",ground:"#E9E4DA",btn:"#FFFFFF"}},
-          {id:"shalfey",name:"Shalfey",c:"yashil",v:{paper:"#EEF1EA",surface:"#FAFBF7",ink:"#26302A",muted:"#66736A",accent:"#4E6B55",gold:"#7E9884",line:"#D3DBCF",ground:"#DDE4D8",btn:"#FFFFFF"}},
-          {id:"pudra",name:"Pudra",c:"pushti",v:{paper:"#F7EEEA",surface:"#FFF9F6",ink:"#3A2A2A",muted:"#8A6F6A",accent:"#9C5F57",gold:"#C29A8F",line:"#EAD6CF",ground:"#EBDDD7",btn:"#FFFFFF"}}]},
-  suzani:{name:"Suzani",style:"milliy",desc:"Розетки сюзане по углам, гранатовые и золотые тона вышивки.",
-    pals:[{id:"krem",name:"Krem",c:"qizil",v:{paper:"#F3EADB",surface:"#FBF5EA",ink:"#3A1E1E",muted:"#7D5A50",accent:"#A3262E",gold:"#B8893B",line:"#E1CDB0",ground:"#E6D6BE",btn:"#FFFFFF"}},
-          {id:"oq",name:"Oq",c:"oq",v:{paper:"#FFFDF8",surface:"#FFFFFF",ink:"#3A1E1E",muted:"#846459",accent:"#B0272F",gold:"#C09243",line:"#EADFCF",ground:"#EFE6D8",btn:"#FFFFFF"}},
-          {id:"zaytun",name:"Zaytun",c:"yashil",v:{paper:"#EEEEDD",surface:"#F8F8EC",ink:"#2F2A18",muted:"#6C6648",accent:"#8E2A23",gold:"#A88A3B",line:"#D9D7BC",ground:"#DCDBC2",btn:"#FFFFFF"}}]},
-  samarqand:{name:"Samarqand",style:"milliy",desc:"Арка-михраб, восьмиконечная звезда и узор изразцов.",
-    pals:[{id:"kobalt",name:"Kobalt",c:"kok",dark:1,v:{paper:"#0F2A5C",surface:"#163670",ink:"#F4EBD8",muted:"#B9C4DA",accent:"#D4A64A",gold:"#D4A64A",line:"rgba(212,166,74,.45)",ground:"#0A1E45",btn:"#0F2A5C"}},
-          {id:"moviy",name:"Moviy",c:"kok",v:{paper:"#F1F5FA",surface:"#FFFFFF",ink:"#13284F",muted:"#5B6B87",accent:"#1E4E9C",gold:"#2F7FA8",line:"#CFDBEA",ground:"#DDE6F1",btn:"#FFFFFF"}},
-          {id:"firuza",name:"Firuza",c:"yashil",dark:1,v:{paper:"#0E3B3E",surface:"#144A4E",ink:"#F2EFE4",muted:"#A9C4C2",accent:"#E0B85A",gold:"#E0B85A",line:"rgba(224,184,90,.4)",ground:"#092B2D",btn:"#0E3B3E"}}]},
-  bahor:{name:"Bahor",style:"gul",isNew:1,desc:"Цветущее «древо жизни» и весенние побеги.",
-    pals:[{id:"oq",name:"Oq",c:"oq",v:{paper:"#FBFBF7",surface:"#FFFFFF",ink:"#1F3B33",muted:"#61756E",accent:"#2E7D6A",gold:"#2E7D6A",line:"#DDE7E2",ground:"#E7EFEA",btn:"#FFFFFF"}},
-          {id:"yalpiz",name:"Yalpiz",c:"yashil",v:{paper:"#E9F6EF",surface:"#F6FCF8",ink:"#173A31",muted:"#557067",accent:"#1F7A63",gold:"#1F7A63",line:"#CFE6DA",ground:"#D4ECDF",btn:"#FFFFFF"}},
-          {id:"pushti",name:"Pushti",c:"pushti",v:{paper:"#FBEFF0",surface:"#FFF8F8",ink:"#3B2730",muted:"#84656F",accent:"#B5466A",gold:"#B5466A",line:"#EFD6DB",ground:"#F1DDE1",btn:"#FFFFFF"}}]},
-  saroy:{name:"Saroy",style:"klassika",isNew:1,desc:"Дворцовая классика: золотой орнамент на глубоком фоне.",
-    pals:[{id:"bordo",name:"Bordo",c:"qizil",dark:1,v:{paper:"#5C1A23",surface:"#6E2330",ink:"#F6E9D7",muted:"#DABFA8",accent:"#D9B26A",gold:"#D9B26A",line:"rgba(217,178,106,.4)",ground:"#45121A",btn:"#5C1A23"}},
-          {id:"zumrad",name:"Zumrad",c:"yashil",dark:1,v:{paper:"#123D33",surface:"#184B40",ink:"#F2EAD6",muted:"#B9CDBF",accent:"#D6B46A",gold:"#D6B46A",line:"rgba(214,180,106,.4)",ground:"#0C2E26",btn:"#123D33"}},
-          {id:"tun",name:"Tun",c:"kok",dark:1,v:{paper:"#141B2E",surface:"#1C2540",ink:"#EFE7D6",muted:"#AEB6CC",accent:"#CFAE6B",gold:"#CFAE6B",line:"rgba(207,174,107,.4)",ground:"#0D1222",btn:"#141B2E"}},
-          {id:"oltin",name:"Oltin",c:"oltin",v:{paper:"#F7F1E6",surface:"#FFFBF3",ink:"#3B2A1A",muted:"#7F6A53",accent:"#9A7433",gold:"#B8914A",line:"#E5D7BE",ground:"#ECE1CD",btn:"#FFFFFF"}}]}
+/* ================= templates: layout × palette × font ================= */
+const STYLE_NAME={milliy:"Milliy",klassika:"Klassika",gotika:"Gotika",gul:"Gullar va bog’",min:"Minimalizm",street:"Rok & graffiti"};
+const COLOR_NAME={oq:"Светлые",qizil:"Красные",yashil:"Зелёные",kok:"Синие",pushti:"Розовые",oltin:"Золотые",qora:"Тёмные",sariq:"Жёлтые"};
+/* fonts: every pair has Cyrillic in the body face; display faces marked lat are Latin-only */
+const FONTS={
+  cormorant:{n:"Cormorant",d:"Cormorant Garamond",b:"Manrope",it:1,sz:3.2,g:["Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500","Manrope:wght@400;600"]},
+  playfair:{n:"Playfair",d:"Playfair Display",b:"PT Serif",it:1,sz:2.9,g:["Playfair+Display:ital@0;1","PT+Serif:ital@0;1"]},
+  prata:{n:"Prata",d:"Prata",b:"Lora",sz:2.7,g:["Prata","Lora:ital@0;1"]},
+  forum:{n:"Forum",d:"Forum",b:"Montserrat",sz:3,g:["Forum","Montserrat:wght@400;500"]},
+  alice:{n:"Alice",d:"Alice",b:"Nunito",sz:2.9,g:["Alice","Nunito:wght@400;600"]},
+  oldstd:{n:"Old Standard",d:"Old Standard TT",b:"PT Serif",it:1,sz:2.9,g:["Old+Standard+TT:ital@0;1","PT+Serif:ital@0;1"]},
+  marck:{n:"Marck Script",d:"Marck Script",b:"Lora",sz:3.3,g:["Marck+Script","Lora:ital@0;1"]},
+  badscript:{n:"Bad Script",d:"Bad Script",b:"Nunito",sz:3,g:["Bad+Script","Nunito:wght@400;600"]},
+  lobster:{n:"Lobster",d:"Lobster",b:"Nunito",sz:3,g:["Lobster","Nunito:wght@400;600"]},
+  yeseva:{n:"Yeseva One",d:"Yeseva One",b:"Lora",sz:2.6,g:["Yeseva+One","Lora:ital@0;1"]},
+  oranienbaum:{n:"Oranienbaum",d:"Oranienbaum",b:"PT Serif",sz:3.1,g:["Oranienbaum","PT+Serif:ital@0;1"]},
+  ruslan:{n:"Ruslan Display",d:"Ruslan Display",b:"PT Serif",sz:2.6,g:["Ruslan+Display","PT+Serif:ital@0;1"]},
+  unifraktur:{n:"Unifraktur",d:"UnifrakturMaguntia",b:"Old Standard TT",sz:3,lat:1,g:["UnifrakturMaguntia","Old+Standard+TT:ital@0;1"]},
+  tenor:{n:"Tenor Sans",d:"Tenor Sans",b:"Manrope",sz:2.6,up:1,g:["Tenor+Sans","Manrope:wght@400;600"]},
+  unbounded:{n:"Unbounded",d:"Unbounded",b:"Manrope",sz:2.2,g:["Unbounded:wght@300;500","Manrope:wght@400;600"]},
+  comfortaa:{n:"Comfortaa",d:"Comfortaa",b:"Nunito",sz:2.6,g:["Comfortaa:wght@400;600","Nunito:wght@400;600"]},
+  russo:{n:"Russo One",d:"Russo One",b:"Rubik",sz:2.5,up:1,g:["Russo+One","Rubik:wght@400;500"]},
+  rubikdirt:{n:"Rubik Dirt",d:"Rubik Dirt",b:"Rubik",sz:2.7,up:1,g:["Rubik+Dirt","Rubik:wght@400;500"]},
+  spray:{n:"Rubik Spray Paint",d:"Rubik Spray Paint",b:"Rubik",sz:2.8,up:1,g:["Rubik+Spray+Paint","Rubik:wght@400;500"]},
+  wetpaint:{n:"Rubik Wet Paint",d:"Rubik Wet Paint",b:"Rubik",sz:2.8,up:1,g:["Rubik+Wet+Paint","Rubik:wght@400;500"]},
+  pacifico:{n:"Pacifico",d:"Pacifico",b:"Rubik",sz:2.7,g:["Pacifico","Rubik:wght@400;500"]},
+  caveat:{n:"Caveat",d:"Caveat",b:"Nunito",sz:3.4,g:["Caveat:wght@500;700","Nunito:wght@400;600"]},
+  kurale:{n:"Kurale",d:"Kurale",b:"PT Serif",sz:2.9,g:["Kurale","PT+Serif:ital@0;1"]},
+  philosopher:{n:"Philosopher",d:"Philosopher",b:"Nunito",sz:3,g:["Philosopher:ital@0;1","Nunito:wght@400;600"]},
+  amatic:{n:"Amatic SC",d:"Amatic SC",b:"Nunito",sz:3.6,g:["Amatic+SC:wght@400;700","Nunito:wght@400;600"]}
 };
-const LAY_ORDER=["suzani","samarqand","bahor","saroy","ivory"];
+const fontLoaded={};
+function loadFont(id){const f=FONTS[id];if(!f||fontLoaded[id])return;fontLoaded[id]=1;const l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?"+f.g.map(x=>"family="+x).join("&")+"&display=swap";document.head.appendChild(l)}
+/* music: "syn" are generated in the browser; the rest stream from Wikimedia Commons */
+const CMN="https://upload.wikimedia.org/wikipedia/commons/";
+const MUSIC={
+  t1:{n:"Nafis",d:"Мелодия Taklifnoma · фортепиано",syn:1},t2:{n:"Bahor",d:"Мелодия Taklifnoma · светлая",syn:1},t3:{n:"Kechki vals",d:"Мелодия Taklifnoma · вальс",syn:1},
+  canon:{n:"Пахельбель — Канон ре мажор",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"c/c6/Canon_in_D_Major_%28ISRC_USUAN1100301%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Canon_in_D_Major_(ISRC_USUAN1100301).mp3"},
+  bridal:{n:"Вагнер — Свадебный хор",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"a/a3/Wagner_Bridal_Chorus_%28ISRC_USUAN1100021%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Wagner_Bridal_Chorus_(ISRC_USUAN1100021).mp3"},
+  nocturne:{n:"Шопен — Ноктюрн ми-бемоль мажор",d:"Фортепиано · CC0",u:CMN+"5/50/Nocturne_Op._9_no._2_in_E_flat_major.mp3",p:"https://commons.wikimedia.org/wiki/File:Nocturne_Op._9_no._2_in_E_flat_major.mp3"},
+  air:{n:"Бах — Ария",d:"Струнный оркестр ВВС США · общественное достояние",u:CMN+"e/ec/Air_-_Air_Force_Strings_-_United_States_Air_Force_Band.mp3",p:"https://commons.wikimedia.org/wiki/File:Air_-_Air_Force_Strings_-_United_States_Air_Force_Band.mp3"},
+  clair:{n:"Дебюсси — Лунный свет",d:"Медные духовые ВВС США · общественное достояние",u:CMN+"6/63/Clair_de_Lune_-_Wright_Brass_-_United_States_Air_Force_Band_of_Flight.mp3",p:"https://commons.wikimedia.org/wiki/File:Clair_de_Lune_-_Wright_Brass_-_United_States_Air_Force_Band_of_Flight.mp3"},
+  gymno:{n:"Сати — Гимнопедия № 1",d:"Гитара, M. Laucke · общественное достояние",u:CMN+"transcoded/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac.mp3",p:"https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac"},
+  flowers:{n:"Чайковский — Вальс цветов",d:"Оркестр армии США · общественное достояние",u:CMN+"e/e4/P.I._Tchaikovsky%27s_Waltz_of_the_Flowers_Performed_by_The_U.S._Army_Band%2C_c._2019.mp3",p:"https://commons.wikimedia.org/wiki/File:P.I._Tchaikovsky%27s_Waltz_of_the_Flowers_Performed_by_The_U.S._Army_Band,_c._2019.mp3"},
+  danube:{n:"Штраус — На прекрасном голубом Дунае",d:"Оркестр морской пехоты США · общественное достояние",u:CMN+"d/de/%22An_der_sch%C3%B6nen%2C_blauen_Donau%22%2C_performed_by_the_US_Marine_Band.mp3",p:"https://commons.wikimedia.org/wiki/File:%22An_der_sch%C3%B6nen,_blauen_Donau%22,_performed_by_the_US_Marine_Band.mp3"},
+  water:{n:"Гендель — Музыка на воде",d:"The Hallé, запись 1930-х · общественное достояние",u:CMN+"transcoded/1/12/PDP-CH_-_The_Hall%C3%A9_-_Malcolm_Sargent_-_Water_Music%2C_HWV_348-350_-_Suite_in_F_major%2C_HWV_348_-_Air%2C_Bourr%C3%A9e_-_Handel_-_Harty_-_Hmv-c3306-2er623.flac/PDP-CH_-_The_Hall%C3%A9_-_Malcolm_Sargent_-_Water_Music%2C_HWV_348-350_-_Suite_in_F_major%2C_HWV_348_-_Air%2C_Bourr%C3%A9e_-_Handel_-_Harty_-_Hmv-c3306-2er623.flac.mp3",p:"https://commons.wikimedia.org/wiki/File:PDP-CH_-_The_Hall%C3%A9_-_Malcolm_Sargent_-_Water_Music,_HWV_348-350_-_Suite_in_F_major,_HWV_348_-_Air,_Bourr%C3%A9e_-_Handel_-_Harty_-_Hmv-c3306-2er623.flac"},
+  toccata:{n:"Бах — Токката и фуга ре минор",d:"Стоковский, запись 1920-х · общественное достояние",u:CMN+"transcoded/8/82/PDP-CH_-_Philadelphia_Orchestra_-_Leopold_Stokowski_-_Toccata_and_Fugue_in_D_minor%2C_BWV_565_-_Part_1_-_Johann_Sebastian_Bach_-_Electrola-ej231-5-0761.flac/PDP-CH_-_Philadelphia_Orchestra_-_Leopold_Stokowski_-_Toccata_and_Fugue_in_D_minor%2C_BWV_565_-_Part_1_-_Johann_Sebastian_Bach_-_Electrola-ej231-5-0761.flac.mp3",p:"https://commons.wikimedia.org/wiki/File:PDP-CH_-_Philadelphia_Orchestra_-_Leopold_Stokowski_-_Toccata_and_Fugue_in_D_minor,_BWV_565_-_Part_1_-_Johann_Sebastian_Bach_-_Electrola-ej231-5-0761.flac"},
+  morning:{n:"Григ — Утро",d:"Musopen Symphony · общественное достояние",u:CMN+"transcoded/c/c2/Grieg_-_Peer_Gynt_Suite_No._1%2C_Op._46_-_I._Morning_Mood_%28Musopen_Symphony%29.flac/Grieg_-_Peer_Gynt_Suite_No._1%2C_Op._46_-_I._Morning_Mood_%28Musopen_Symphony%29.flac.mp3",p:"https://commons.wikimedia.org/wiki/File:Grieg_-_Peer_Gynt_Suite_No._1,_Op._46_-_I._Morning_Mood_(Musopen_Symphony).flac"},
+  sockhop:{n:"Sock Hop — рок-н-ролл 50-х",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"d/d5/Sock_Hop_%28ISRC_USUAN1100495%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Sock_Hop_(ISRC_USUAN1100495).mp3"},
+  surf:{n:"Surf Shimmy — сёрф-рок",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"c/c3/Surf_Shimmy_%28ISRC_USUAN1700018%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Surf_Shimmy_(ISRC_USUAN1700018).mp3"},
+  rock:{n:"Rock Over London",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"8/89/Rock_Over_London_%28ISRC_USUAN1100092%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Rock_Over_London_(ISRC_USUAN1100092).mp3"},
+  griphop:{n:"Griphop — хип-хоп",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"1/1e/Griphop_%28ISRC_USUAN1100413%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Griphop_(ISRC_USUAN1100413).mp3"},
+  chillin:{n:"Chillin Hard — бит",d:"Kevin MacLeod · CC BY 3.0",cc:"Kevin MacLeod (incompetech.com), CC BY 3.0",u:CMN+"c/c7/Chillin_Hard_%28ISRC_USUAN1600028%29.mp3",p:"https://commons.wikimedia.org/wiki/File:Chillin_Hard_(ISRC_USUAN1600028).mp3"}
+};
+const pv=(paper,surface,ink,muted,accent,gold,line,ground,btn)=>({paper,surface,ink,muted,accent,gold,line,ground,btn});
+const LAY={
+  suzani:{name:"Suzani",style:"milliy",desc:"Розетки сюзане по углам, гранатовые и золотые тона вышивки.",fonts:["prata","marck","kurale"],music:["t1","canon","nocturne"],
+    pals:[{id:"krem",name:"Krem",c:"qizil",v:pv("#F3EADB","#FBF5EA","#3A1E1E","#7D5A50","#A3262E","#B8893B","#E1CDB0","#E6D6BE","#FFFFFF")},
+          {id:"oq",name:"Oq",c:"oq",v:pv("#FFFDF8","#FFFFFF","#3A1E1E","#846459","#B0272F","#C09243","#EADFCF","#EFE6D8","#FFFFFF")},
+          {id:"zaytun",name:"Zaytun",c:"yashil",v:pv("#EEEEDD","#F8F8EC","#2F2A18","#6C6648","#8E2A23","#A88A3B","#D9D7BC","#DCDBC2","#FFFFFF")}]},
+  samarqand:{name:"Samarqand",style:"milliy",desc:"Арка-михраб, восьмиконечная звезда и узор изразцов.",fonts:["forum","oranienbaum","philosopher"],music:["t3","air","canon"],
+    pals:[{id:"kobalt",name:"Kobalt",c:"kok",dark:1,v:pv("#0F2A5C","#163670","#F4EBD8","#B9C4DA","#D4A64A","#D4A64A","rgba(212,166,74,.45)","#0A1E45","#0F2A5C")},
+          {id:"moviy",name:"Moviy",c:"kok",v:pv("#F1F5FA","#FFFFFF","#13284F","#5B6B87","#1E4E9C","#2F7FA8","#CFDBEA","#DDE6F1","#FFFFFF")},
+          {id:"firuza",name:"Firuza",c:"yashil",dark:1,v:pv("#0E3B3E","#144A4E","#F2EFE4","#A9C4C2","#E0B85A","#E0B85A","rgba(224,184,90,.4)","#092B2D","#0E3B3E")}]},
+  bahor:{name:"Bahor",style:"gul",desc:"Цветущее «древо жизни» и весенние побеги.",fonts:["alice","badscript","comfortaa"],music:["t2","morning","flowers"],
+    pals:[{id:"oq",name:"Oq",c:"oq",v:pv("#FBFBF7","#FFFFFF","#1F3B33","#61756E","#2E7D6A","#2E7D6A","#DDE7E2","#E7EFEA","#FFFFFF")},
+          {id:"yalpiz",name:"Yalpiz",c:"yashil",v:pv("#E9F6EF","#F6FCF8","#173A31","#557067","#1F7A63","#1F7A63","#CFE6DA","#D4ECDF","#FFFFFF")},
+          {id:"pushti",name:"Pushti",c:"pushti",v:pv("#FBEFF0","#FFF8F8","#3B2730","#84656F","#B5466A","#B5466A","#EFD6DB","#F1DDE1","#FFFFFF")}]},
+  saroy:{name:"Saroy",style:"klassika",desc:"Дворцовая классика с узбекским золотым орнаментом на глубоком фоне.",fonts:["playfair","yeseva","oldstd"],music:["t1","danube","water"],
+    pals:[{id:"bordo",name:"Bordo",c:"qizil",dark:1,v:pv("#5C1A23","#6E2330","#F6E9D7","#DABFA8","#D9B26A","#D9B26A","rgba(217,178,106,.4)","#45121A","#5C1A23")},
+          {id:"zumrad",name:"Zumrad",c:"yashil",dark:1,v:pv("#123D33","#184B40","#F2EAD6","#B9CDBF","#D6B46A","#D6B46A","rgba(214,180,106,.4)","#0C2E26","#123D33")},
+          {id:"tun",name:"Tun",c:"kok",dark:1,v:pv("#141B2E","#1C2540","#EFE7D6","#AEB6CC","#CFAE6B","#CFAE6B","rgba(207,174,107,.4)","#0D1222","#141B2E")},
+          {id:"oltin",name:"Oltin",c:"oltin",v:pv("#F7F1E6","#FFFBF3","#3B2A1A","#7F6A53","#9A7433","#B8914A","#E5D7BE","#ECE1CD","#FFFFFF")}]},
+  ivory:{name:"Ivory",style:"min",desc:"Сдержанный минимализм: много воздуха и тонкий орнамент ислими.",fonts:["cormorant","tenor","playfair"],music:["gymno","nocturne","t2"],
+    pals:[{id:"fil",name:"Fil suyagi",c:"oq",v:pv("#F6F3EC","#FFFFFF","#2B2A28","#7A746A","#2B2A28","#B49A6A","#DDD5C6","#E9E4DA","#FFFFFF")},
+          {id:"shalfey",name:"Shalfey",c:"yashil",v:pv("#EEF1EA","#FAFBF7","#26302A","#66736A","#4E6B55","#7E9884","#D3DBCF","#DDE4D8","#FFFFFF")},
+          {id:"pudra",name:"Pudra",c:"pushti",v:pv("#F7EEEA","#FFF9F6","#3A2A2A","#8A6F6A","#9C5F57","#C29A8F","#EAD6CF","#EBDDD7","#FFFFFF")}]},
+  barokko:{name:"Barokko",style:"klassika",isNew:1,desc:"Картуши и акантовые фризы с гравюр XVII–XVIII веков, золото на мраморе или бордо.",fonts:["playfair","oldstd","marck"],music:["water","air","canon"],
+    pals:[{id:"fil",name:"Fil suyagi",c:"oltin",v:pv("#F5EFE3","#FFFBF2","#3A2C1C","#7D6A55","#9A7433","#A8823C","#E2D3B8","#E9DFCB","#FFFFFF")},
+          {id:"bordo",name:"Bordo",c:"qizil",dark:1,v:pv("#4A1520","#5A1C29","#F4E6D2","#D2B8A0","#D4AF6A","#D4AF6A","rgba(212,175,106,.4)","#36101A","#4A1520")},
+          {id:"marmar",name:"Marmar",c:"oq",v:pv("#EDEDEA","#F8F8F6","#2A2A2E","#6C6C72","#7A6033","#9C8045","#D6D6D0","#DEDED8","#FFFFFF")}]},
+  lui:{name:"Versal",style:"klassika",isNew:1,desc:"Королевский дворец эпохи Людовика: рокайльный картуш, лилии-флёр-де-лис, синий и золото.",fonts:["oranienbaum","cormorant","yeseva"],music:["danube","bridal","water"],
+    pals:[{id:"versal",name:"Versal",c:"kok",dark:1,v:pv("#13234A","#1A2D5C","#F3EBDA","#B4BFD6","#D8B76A","#D8B76A","rgba(216,183,106,.4)","#0C1835","#13234A")},
+          {id:"oq",name:"Oq oltin",c:"oq",v:pv("#FBFAF6","#FFFFFF","#1E2A44","#66708A","#2B3F75","#B8944A","#E6E1D3","#ECE8DD","#FFFFFF")},
+          {id:"lavanda",name:"Lavanda",c:"pushti",v:pv("#F1EEF6","#FBFAFD","#2E2640","#6F6683","#6A55A0","#B39456","#DCD5E8","#E3DDEE","#FFFFFF")}]},
+  gotika:{name:"Gotika",style:"gotika",isNew:1,desc:"Стрельчатые арки, витражная роза и ажурный готический орнамент.",fonts:["ruslan","unifraktur","oldstd"],music:["toccata","clair","nocturne"],
+    pals:[{id:"tun",name:"Tun",c:"qora",dark:1,v:pv("#141214","#1E1A1E","#EDE6DA","#A9A09A","#B8343F","#C9A35E","rgba(201,163,94,.35)","#0B0A0B","#FFFFFF")},
+          {id:"qon",name:"Qon",c:"qizil",dark:1,v:pv("#3A0E14","#4A141C","#F2E4D6","#C9A9A0","#D7B26A","#D7B26A","rgba(215,178,106,.35)","#28090D","#3A0E14")},
+          {id:"tosh",name:"Tosh",c:"oq",v:pv("#E6E3DE","#F2F0EC","#26232A","#66626C","#5B2430","#6E6670","#CFCAC2","#D6D2CB","#FFFFFF")}]},
+  bog:{name:"Gulzor",style:"gul",isNew:1,desc:"Цветочный сад: букеты с гравюр Редуте — анемоны и розы.",fonts:["badscript","cormorant","alice"],music:["flowers","morning","canon"],
+    pals:[{id:"oq",name:"Oq",c:"oq",v:pv("#FCFBF7","#FFFFFF","#2F3A2E","#6E776B","#7A4E86","#6E8B5E","#E3E6DD","#ECEEE6","#FFFFFF")},
+          {id:"shalfey",name:"Shalfey",c:"yashil",v:pv("#EEF2EA","#F8FAF5","#253024","#5F6B5D","#A04E5A","#6E8B5E","#D4DDCE","#DCE4D5","#FFFFFF")},
+          {id:"tun",name:"Tungi bog’",c:"qora",dark:1,v:pv("#1D2B22","#26372C","#F0EDE4","#B3C0B4","#E3A6B4","#C9B47A","rgba(201,180,122,.35)","#142019","#1D2B22")}]},
+  atirgul:{name:"Atirgul",style:"gul",isNew:1,desc:"Розы Редуте: алые, розовые и бордовые.",fonts:["marck","cormorant","playfair"],music:["nocturne","canon","bridal"],
+    pals:[{id:"pudra",name:"Pudra",c:"pushti",v:pv("#F8EDEB","#FFF8F6","#3B2326","#86656A","#A8344A","#B98A7E","#EBD5D1","#EEDCD8","#FFFFFF")},
+          {id:"krem",name:"Krem",c:"oq",v:pv("#F7F1E5","#FFFBF2","#3A2A22","#7F6A5C","#9E2A3A","#A88A5C","#E5D9C4","#EBE1CF","#FFFFFF")},
+          {id:"bordo",name:"Bordo",c:"qizil",dark:1,v:pv("#3E1018","#4D1620","#F6E6E0","#D3AFAA","#E9A3AE","#D9B27A","rgba(217,178,122,.35)","#2B0A10","#3E1018")}]},
+  liliya:{name:"Liliya",style:"gul",isNew:1,desc:"Лилии из «Лилейных» Редуте — тонкие и графичные.",fonts:["cormorant","tenor","yeseva"],music:["air","clair","nocturne"],
+    pals:[{id:"oq",name:"Oq",c:"oq",v:pv("#FBFBF8","#FFFFFF","#233029","#66746C","#2F6B57","#A5925C","#E1E6E0","#E9EDE7","#FFFFFF")},
+          {id:"zumrad",name:"Zumrad",c:"yashil",dark:1,v:pv("#0F3A30","#154638","#F2EEE2","#B4CAC0","#E9C77B","#E9C77B","rgba(233,199,123,.35)","#0A2A22","#0F3A30")},
+          {id:"shaftoli",name:"Shaftoli",c:"pushti",v:pv("#FBF0E8","#FFF8F3","#3A2A22","#84695C","#C0533A","#B98A5C","#EED9CB","#F1E0D3","#FFFFFF")}]},
+  lola:{name:"Lola",style:"gul",isNew:1,desc:"Тюльпаны — символ узбекской весны. Гравюры Редуте.",fonts:["alice","prata","caveat"],music:["morning","flowers","canon"],
+    pals:[{id:"oq",name:"Oq",c:"oq",v:pv("#FCFAF6","#FFFFFF","#2A2A22","#6F6E62","#C23B2E","#6E8B3D","#E6E3D9","#EEEBE1","#FFFFFF")},
+          {id:"bahor",name:"Bahor",c:"yashil",v:pv("#EEF4E6","#F8FBF3","#24301D","#627058","#C23B2E","#5E8A3A","#D6E2C9","#DDE8CF","#FFFFFF")},
+          {id:"qizil",name:"Qizil",c:"qizil",dark:1,v:pv("#6E1A1A","#7E2222","#FBEFE3","#E3BFB2","#F2C14E","#F2C14E","rgba(242,193,78,.35)","#521212","#6E1A1A")}]},
+  kungaboqar:{name:"Kungaboqar",style:"gul",isNew:1,desc:"Подсолнухи — солнечный летний шаблон.",fonts:["comfortaa","caveat","alice"],music:["morning","t2","canon"],
+    pals:[{id:"krem",name:"Krem",c:"sariq",v:pv("#FBF6E8","#FFFCF2","#33291A","#7A6B52","#B07A14","#6C7A2E","#ECE2C8","#F0E7CF","#FFFFFF")},
+          {id:"osmon",name:"Osmon",c:"kok",v:pv("#E8F1F8","#F6FAFD","#1E2C3A","#5C6E80","#B57A0A","#2F6E9E","#CFDFEC","#D6E5F1","#FFFFFF")},
+          {id:"zaytun",name:"Zaytun",c:"yashil",dark:1,v:pv("#2C3A1E","#364726","#F5EFD9","#C6C9A8","#F2BE3A","#F2BE3A","rgba(242,190,58,.35)","#1F2A15","#2C3A1E")}]},
+  gortenziya:{name:"Gortenziya",style:"gul",isNew:1,desc:"Гортензии из «Флоры Японии» Зибольда: голубые и розовые.",fonts:["cormorant","philosopher","badscript"],music:["clair","gymno","flowers"],
+    pals:[{id:"moviy",name:"Moviy",c:"kok",v:pv("#EEF2FA","#F9FAFE","#222B44","#626C88","#4A5FA8","#7E8FC7","#D8DFF0","#DEE4F3","#FFFFFF")},
+          {id:"lavanda",name:"Lavanda",c:"pushti",v:pv("#F2EEF8","#FBF9FD","#2D2440","#6F6585","#7A55A6","#B08BC8","#E0D8EC","#E6DFF1","#FFFFFF")},
+          {id:"oq",name:"Oq",c:"oq",v:pv("#FCFCFB","#FFFFFF","#2A2E35","#6B7079","#5468A6","#9AA6C9","#E5E7EB","#ECEEF1","#FFFFFF")}]},
+  mevali:{name:"Mevali bog’",style:"gul",isNew:1,desc:"Фруктовый сад: гранаты и черешня из акварелей USDA.",fonts:["lobster","alice","amatic"],music:["morning","flowers","t2"],
+    pals:[{id:"krem",name:"Krem",c:"oq",v:pv("#FBF5EA","#FFFBF3","#3A2318","#7F6555","#A3262E","#6E8B3D","#EADCC7","#EFE3CF","#FFFFFF")},
+          {id:"shaftoli",name:"Shaftoli",c:"pushti",v:pv("#FCEEE4","#FFF8F2","#3B2418","#87665A","#C2452E","#7C9A45","#F0D8C8","#F3DFD0","#FFFFFF")},
+          {id:"yashil",name:"Yashil bog’",c:"yashil",dark:1,v:pv("#1F3524","#28432E","#F6EEDF","#BDCDB8","#E86A5A","#E3C46E","rgba(227,196,110,.35)","#15261A","#1F3524")}]},
+  minimal:{name:"Modern",style:"min",isNew:1,desc:"Современный минимализм: крупная типографика, тонкие линии, никакого декора.",fonts:["unbounded","tenor","cormorant"],music:["gymno","clair","nocturne"],
+    pals:[{id:"oq",name:"Oq-qora",c:"oq",v:pv("#FFFFFF","#F6F6F4","#111111","#7A7A7A","#111111","#111111","#E5E5E5","#EDEDED","#FFFFFF")},
+          {id:"qum",name:"Qum",c:"oltin",v:pv("#EFE9E0","#F7F3EC","#2B2621","#857B70","#2B2621","#A0866A","#DDD3C6","#E4DCD0","#EFE9E0")},
+          {id:"grafit",name:"Grafit",c:"qora",dark:1,v:pv("#1C1D1F","#26272A","#F2F0EC","#9A9894","#F2F0EC","#C8B79A","#34363A","#121314","#1C1D1F")}]},
+  rok:{name:"Rock’n’roll",style:"street",isNew:1,desc:"Афиша 50-х: звёзды, шахматная лента, винил и полутона.",fonts:["russo","rubikdirt","pacifico"],music:["sockhop","surf","rock"],
+    pals:[{id:"klassik",name:"Klassik",c:"qizil",v:pv("#F4EBDD","#FFF7EA","#1A1A1A","#6B5F55","#D7262E","#1A1A1A","#1A1A1A","#1A1A1A","#FFFFFF")},
+          {id:"tun",name:"Tun",c:"qora",dark:1,v:pv("#141414","#1F1F1F","#F4EBDD","#A9A29A","#E3342F","#F2C14E","#3A3A3A","#0A0A0A","#FFFFFF")},
+          {id:"diner",name:"Diner",c:"pushti",v:pv("#CFEDE3","#E6F7F1","#1E2B33","#4C6670","#E2557A","#1E2B33","#1E2B33","#F6C9D3","#FFFFFF")}]},
+  graffiti:{name:"Graffiti",style:"street",isNew:1,desc:"Стена, брызги краски и теги — для дня рождения и молодёжного праздника.",fonts:["spray","wetpaint","russo"],music:["griphop","chillin","rock"],
+    pals:[{id:"neon",name:"Neon",c:"qora",dark:1,v:pv("#141418","#1D1D24","#F3F3F3","#A2A2AE","#FF3EA5","#B6FF3A","#2C2C36","#0B0B0E","#141418")},
+          {id:"gisht",name:"G’isht",c:"qizil",dark:1,v:pv("#8A3B2C","#9A4535","#FFF4E8","#F0C9B8","#FFD23F","#34E0C4","rgba(255,244,232,.25)","#6A2B20","#2A1410")},
+          {id:"devor",name:"Oq devor",c:"oq",v:pv("#F2F2EE","#FFFFFF","#1A1A1A","#666666","#3A5BFF","#FF4D2E","#DADAD4","#E2E2DC","#FFFFFF")}]}
+};
+const LAY_ORDER=["suzani","samarqand","saroy","bahor","ivory","barokko","lui","gotika","bog","atirgul","liliya","lola","kungaboqar","gortenziya","mevali","minimal","rok","graffiti"];
 function palOf(ev){const L=LAY[ev.tpl]||LAY.suzani;return L.pals.find(p=>p.id===ev.pal)||L.pals[0]}
-function palStyle(p){const v=p.v;return `--paper:${v.paper};--surface:${v.surface};--ink:${v.ink};--muted:${v.muted};--accent:${v.accent};--gold:${v.gold};--line:${v.line};--ground:${v.ground};--btn-fg:${v.btn};color-scheme:${p.dark?"dark":"light"}`}
-const O=id=>`orn/${id}.webp`;
+function fontOf(ev){const L=LAY[ev.tpl]||LAY.suzani;const id=L.fonts.includes(ev.font)?ev.font:(FONTS[ev.font]?ev.font:L.fonts[0]);return {id,...FONTS[id]}}
+function palStyle(p,f){const v=p.v;let s=`--paper:${v.paper};--surface:${v.surface};--ink:${v.ink};--muted:${v.muted};--accent:${v.accent};--gold:${v.gold};--line:${v.line};--ground:${v.ground};--btn-fg:${v.btn};color-scheme:${p.dark?"dark":"light"}`;
+  if(f){loadFont(f.id);s+=`;--f-display:"${f.d}",Georgia,serif;--f-body:"${f.b}","Helvetica Neue",Arial,sans-serif;--names-size:${f.sz}rem;--names-style:${f.it?"italic":"normal"};--names-tt:${f.up?"uppercase":"none"}`}return s}
+function styleOf(ev){return palStyle(palOf(ev),fontOf(ev))}
+const O=id=>`orn/${id}.webp`, A=id=>`art/${id}.webp`;
 const img=(id,cls,st)=>`<img src="${O(id)}" class="${cls||""}" style="${st||""}" alt="" loading="lazy" decoding="async">`;
-const mask=(id,cls,st)=>`<span class="mask ${cls||""}" style="-webkit-mask-image:url(${O(id)});mask-image:url(${O(id)});${st||""}" aria-hidden="true"></span>`;
+const art=(id,cls,st)=>`<img src="${A(id)}" class="${cls||""}" style="${st||""}" alt="" loading="lazy" decoding="async">`;
+const maskU=(u,cls,st)=>`<span class="mask ${cls||""}" style="-webkit-mask-image:url(${u});mask-image:url(${u});${st||""}" aria-hidden="true"></span>`;
+const mask=(id,cls,st)=>maskU(O(id),cls,st), amask=(id,cls,st)=>maskU(A(id),cls,st);
+/* hand-drawn vector motifs */
+const SV={
+  fleur:(c,w)=>`<svg viewBox="0 0 100 120" width="${w}" height="${w*1.2}" aria-hidden="true" style="display:block;margin:0 auto"><g fill="${c}"><path d="M50 4c-9 14-12 30-6 46 2 6 4 12 6 18 2-6 4-12 6-18 6-16 3-32-6-46z"/><path d="M44 56C34 44 16 40 8 52c-6 9 0 22 12 22 8 0 12-6 10-12-3 4-10 4-12-1-2-6 4-11 11-9 6 2 10 6 15 12z"/><path d="M56 56c10-12 28-16 36-4 6 9 0 22-12 22-8 0-12-6-10-12 3 4 10 4 12-1 2-6-4-11-11-9-6 2-10 6-15 12z"/><rect x="26" y="66" width="48" height="8" rx="2"/><path d="M44 76h12l-2 26c0 6-8 6-8 0z"/><path d="M40 102h20l-4 14h-12z"/></g></svg>`,
+  rose:(c,w)=>{let p="";for(let i=0;i<12;i++){p+=`<path d="M50 50 L50 8 A42 42 0 0 1 ${50+42*Math.sin(Math.PI/6)} ${50-42*Math.cos(Math.PI/6)} Z" transform="rotate(${i*30} 50 50)" fill="none" stroke="${c}" stroke-width="1"/><circle cx="50" cy="20" r="5" fill="none" stroke="${c}" stroke-width="1" transform="rotate(${i*30+15} 50 50)"/>`}
+    return `<svg viewBox="0 0 100 100" width="${w}" height="${w}" aria-hidden="true" style="display:block;margin:0 auto"><circle cx="50" cy="50" r="47" fill="none" stroke="${c}" stroke-width="2"/><circle cx="50" cy="50" r="42" fill="none" stroke="${c}" stroke-width="1"/>${p}<circle cx="50" cy="50" r="10" fill="none" stroke="${c}" stroke-width="1.6"/><circle cx="50" cy="50" r="4" fill="${c}"/></svg>`},
+  garch:c=>`<svg class="arch" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M8 296V130Q8 50 100 6Q192 50 192 130V296" fill="none" stroke="${c}" stroke-width="1.6" vector-effect="non-scaling-stroke"/><path d="M18 296V134Q18 62 100 20Q182 62 182 134V296" fill="none" stroke="${c}" stroke-width=".8" opacity=".6" vector-effect="non-scaling-stroke"/></svg>`,
+  star:(c,w)=>`<svg viewBox="0 0 24 24" width="${w}" height="${w}" aria-hidden="true"><path d="M12 1.5l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.6l-6.4 3.5L7 14l-5.3-5 7.2-.9z" fill="${c}"/></svg>`,
+  vinyl:(c,a)=>`<svg viewBox="0 0 100 100" width="120" height="120" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="${c}"/>${[40,34,28].map(r=>`<circle cx="50" cy="50" r="${r}" fill="none" stroke="#fff" stroke-opacity=".12"/>`).join("")}<circle cx="50" cy="50" r="17" fill="${a}"/><circle cx="50" cy="50" r="2.5" fill="${c}"/></svg>`,
+  drips:(c,h)=>{let p="";const xs=[6,14,27,39,48,61,72,84,93];xs.forEach((x,i)=>{const L=8+((i*37)%5)*6;p+=`<path d="M${x-2} 0h4v${L}a2 2 0 0 1-4 0z"/><circle cx="${x}" cy="${L+3}" r="2.2"/>`});return `<svg viewBox="0 0 100 40" preserveAspectRatio="none" width="100%" height="${h}" aria-hidden="true" style="display:block"><rect width="100" height="3" fill="${c}"/><g fill="${c}">${p}</g></svg>`},
+  spray:(c,w)=>`<svg viewBox="0 0 100 100" width="${w}" height="${w}" aria-hidden="true"><defs><radialGradient id="sg${c.replace(/\W/g,"")}"><stop offset="0" stop-color="${c}" stop-opacity=".95"/><stop offset=".55" stop-color="${c}" stop-opacity=".55"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#sg${c.replace(/\W/g,"")})"/>${Array.from({length:26},(_, i)=>{const a=i*2.4,r=34+((i*13)%14);return `<circle cx="${(50+r*Math.cos(a)).toFixed(1)}" cy="${(50+r*Math.sin(a)).toFixed(1)}" r="${(0.8+(i%3)*.5).toFixed(1)}" fill="${c}"/>`}).join("")}</svg>`
+};
+const ART_ROW=(a,b,w)=>`<div class="pair" aria-hidden="true">${art(a,"",`width:${w}px`)}${art(b,"",`width:${w}px`)}</div>`;
 const DECO={
   ivory:{hero:()=>mask(361,"orn-top","width:56px;height:84px"),div:()=>mask(339,"","width:150px;height:46px"),band:()=>"",seal:ev=>`<div class="seal ini">${esc(initials(ev))}</div>`,top:()=>mask(361,"orn-top","width:40px;height:60px")},
   suzani:{hero:()=>img(471,"corner tl")+img(471,"corner tr"),div:()=>img(472,"","height:44px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${img(470)}</div>`,top:()=>img(471,"corner tl")+img(471,"corner tr")+img(471,"corner bl")+img(471,"corner br")},
   samarqand:{hero:p=>arch(p.v.gold)+img(433,"orn-top","width:92px"),div:()=>img(319,"","height:44px;width:auto"),band:()=>`<div class="band" style="background-image:url(${O(459)})" aria-hidden="true"></div>`,seal:()=>`<div class="seal">${img(433)}</div>`,top:p=>arch(p.v.gold)+img(433,"orn-top","width:70px")},
   bahor:{hero:()=>img(476,"orn-top","width:118px"),div:()=>img(477,"","height:46px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${img(478)}</div>`,top:()=>img(476,"orn-top","width:80px")},
-  saroy:{hero:()=>mask(474,"orn-top","width:150px;height:128px"),div:()=>mask(339,"","width:160px;height:50px"),band:()=>mask(339,"band","height:30px;margin:0"),seal:()=>`<div class="seal">${mask(474,"","width:120px;height:104px")}</div>`,top:()=>mask(474,"orn-top","width:100px;height:86px")}
+  saroy:{hero:()=>mask(474,"orn-top","width:150px;height:128px"),div:()=>mask(339,"","width:160px;height:50px"),band:()=>mask(339,"band","height:30px;margin:0"),seal:()=>`<div class="seal">${mask(474,"","width:120px;height:104px")}</div>`,top:()=>mask(474,"orn-top","width:100px;height:86px")},
+  barokko:{hero:()=>amask("bar_frame","orn-top","width:190px;height:150px"),div:()=>amask("bar_cart","","width:110px;height:56px"),band:()=>amask("bar_frieze","band","height:46px;margin:0;-webkit-mask-size:auto 100%;mask-size:auto 100%"),seal:()=>`<div class="seal">${amask("bar_frame","","width:130px;height:110px")}</div>`,top:()=>amask("bar_frame","orn-top","width:120px;height:96px")},
+  lui:{hero:p=>amask("lui_cart","orn-top","width:150px;height:150px")+SV.fleur(p.v.gold,34),div:p=>`<div class="pair">${SV.fleur(p.v.gold,16)}${SV.fleur(p.v.gold,22)}${SV.fleur(p.v.gold,16)}</div>`,band:()=>amask("bar_frieze","band","height:40px;margin:0"),seal:(ev,p)=>`<div class="seal">${SV.fleur(p.v.gold,80)}</div>`,top:p=>SV.fleur(p.v.gold,40)},
+  gotika:{hero:p=>SV.garch(p.v.gold)+`<div class="orn-top">${SV.rose(p.v.gold,96)}</div>`,div:p=>SV.rose(p.v.gold,40),band:()=>amask("goth_tr","band","height:70px;margin:0"),seal:(ev,p)=>`<div class="seal">${SV.rose(p.v.gold,110)}</div>`,top:p=>SV.garch(p.v.gold)+`<div class="orn-top">${SV.rose(p.v.gold,64)}</div>`},
+  bog:{hero:()=>art("bouq_anem","corner tl big")+art("bouq_rose","corner tr big"),div:()=>art("bouq_anem","","height:64px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("bouq_anem","","height:130px;width:auto")}</div>`,top:()=>art("bouq_anem","corner tl big")+art("bouq_rose","corner tr big")},
+  atirgul:{hero:()=>art("rose_red","corner tl big")+art("rose_pink","corner tr big"),div:()=>art("rose_b","","height:70px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("rose_red","","height:130px;width:auto")}</div>`,top:()=>art("rose_red","corner tl big")+art("rose_pink","corner br big")},
+  liliya:{hero:()=>art("lily_red","orn-top","height:170px;width:auto"),div:()=>art("lily_yel","","height:76px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("lily_pink","","height:130px;width:auto")}</div>`,top:()=>art("lily_red","corner tl big")},
+  lola:{hero:()=>ART_ROW("tulip_b","tulip_syl",70),div:()=>art("tulip_sua","","height:64px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("tulip_b","","height:130px;width:auto")}</div>`,top:()=>ART_ROW("tulip_b","tulip_syl",48)},
+  kungaboqar:{hero:()=>art("sun_b","orn-top","height:160px;width:auto"),div:()=>art("sun_a","","height:60px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("sun_b","","height:130px;width:auto")}</div>`,top:()=>art("sun_b","corner tr big")},
+  gortenziya:{hero:()=>art("hyd_blue","orn-top","height:150px;width:auto"),div:()=>art("hyd_pink","","height:60px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("hyd_blue","","height:120px;width:auto")}</div>`,top:()=>art("hyd_blue","corner tr big")},
+  mevali:{hero:()=>art("pom_b","corner tl big")+art("cherry_b","corner tr big"),div:()=>art("pom_a","","height:50px;width:auto"),band:()=>"",seal:()=>`<div class="seal">${art("pom_a","","height:110px;width:auto")}</div>`,top:()=>art("pom_b","corner tl big")+art("cherry_a","corner br big")},
+  minimal:{hero:()=>`<div class="mline" aria-hidden="true"></div>`,div:()=>`<div class="mline short" aria-hidden="true"></div>`,band:()=>"",seal:ev=>`<div class="seal ini sq">${esc(initials(ev))}</div>`,top:()=>`<div class="mline" aria-hidden="true"></div>`},
+  rok:{hero:p=>`<div class="halftone" aria-hidden="true"></div><div class="pair">${SV.star(p.v.accent,26)}${SV.star(p.v.gold,34)}${SV.star(p.v.accent,26)}</div>`,div:p=>`<div class="pair">${SV.star(p.v.accent,16)}${SV.star(p.v.accent,16)}${SV.star(p.v.accent,16)}</div>`,band:()=>`<div class="checker" aria-hidden="true"></div>`,seal:(ev,p)=>`<div class="seal">${SV.vinyl("#151515",p.v.accent)}</div>`,top:p=>`<div class="pair">${SV.star(p.v.accent,20)}${SV.star(p.v.gold,26)}${SV.star(p.v.accent,20)}</div>`},
+  graffiti:{hero:p=>`<div class="sprayL" aria-hidden="true">${SV.spray(p.v.accent,190)}</div><div class="sprayR" aria-hidden="true">${SV.spray(p.v.gold,150)}</div>`,div:p=>`<div class="tagline" aria-hidden="true">${SV.drips(p.v.accent,26)}</div>`,band:p=>SV.drips(p.v.gold,34),seal:(ev,p)=>`<div class="seal">${SV.spray(p.v.accent,130)}</div>`,top:p=>`<div class="sprayL" aria-hidden="true">${SV.spray(p.v.accent,120)}</div>`}
 };
 function arch(c){return `<svg class="arch" viewBox="0 0 200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M8 296V112C8 58 60 22 100 8c40 14 92 50 92 104v184" fill="none" stroke="${c}" stroke-width="1.4" vector-effect="non-scaling-stroke"/><path d="M16 296V114C16 66 64 34 100 20c36 14 84 46 84 94v182" fill="none" stroke="${c}" stroke-width=".8" opacity=".6" vector-effect="non-scaling-stroke"/></svg>`}
 
@@ -111,7 +245,6 @@ const PRESET={
           ru:"Хотим разделить с вами радость в нашей семье. Приглашаем вас на бешик-той нашего внука {g}."},
   birthday:{uz:"Sizni {g}ning tug’ilgan kuni munosabati bilan o’tkaziladigan bazmga taklif qilamiz.",
             ru:"Приглашаем вас на праздник в честь дня рождения {g}."}};
-const TRACKS=[{id:"t1",name:"Nafis",desc:"Нежная, фортепиано"},{id:"t2",name:"Bahor",desc:"Светлая, весенняя"},{id:"t3",name:"Kechki vals",desc:"Вальс, вечерняя"}];
 
 /* ================= invitation renderer ================= */
 function evDate(ev){return new Date(ev.date+"T"+(ev.time||"18:00")+":00+05:00")}
@@ -162,7 +295,7 @@ function inviteHTML(ev,lang,mode){
   const greetName=ev.to?esc(ev.to):"";
   const fam=ev.kind==="wedding"?(ev.famG||ev.famB?`<div class="fam">${ev.famG?`<div><small>${t.famG}</small>${esc(ev.famG)}</div>`:""}${ev.famB?`<div><small>${t.famB}</small>${esc(ev.famB)}</div>`:""}</div>`:""):(ev.famG?`<div class="fam one"><div><small>${t.fam1}</small>${esc(ev.famG)}</div></div>`:"");
   const bl=blocks(ev);
-  return `<div class="inv" data-tpl="${ev.tpl}" style="${palStyle(P)}">
+  return `<div class="inv" data-tpl="${ev.tpl}" style="${styleOf(ev)}">
   ${ev.draft?`<div class="wm-ribbon">${t.draft}</div><div class="watermark"></div>`:""}
   <section class="sec hero">${D.hero(P)}
     <div class="kicker">${t.kinds[ev.kind]}</div>
@@ -192,12 +325,12 @@ function inviteHTML(ev,lang,mode){
   ${ev.opts&&ev.opts.wishes!==false?`<section class="sec"><h2 class="ih2">${t.wishesH}</h2><div class="wish-box">${wishList(ev,lang)}${ev.draft?"":wishForm(lang,pfx,ev.to)}</div></section>`:""}
   ${ev.gift&&ev.gift.on&&ev.gift.card?`<section class="sec"><h2 class="ih2">${t.giftH}</h2><div class="gift"><div class="imuted" style="font-size:13px">${esc(ev.gift.holder)}</div><div class="card-no">${esc(ev.gift.card)}</div><button type="button" class="ibtn" data-copy="${esc(ev.gift.card.replace(/\s/g,""))}">${t.giftCopy}</button><p class="imuted" style="margin:6px 0 0;font-size:13px">${t.giftNote}</p></div></section>`:""}
   ${contacts.length?`<section class="sec"><h2 class="ih2">${t.contactsH}</h2><div class="contacts">${contacts.map(c=>`<div class="contact"><div><small>${esc(c.label)}</small>${esc(c.name)}${c.phone?` · <span class="num">${esc(c.phone)}</span>`:""}</div></div>`).join("")}</div></section>`:""}
-  <section class="sec final">${D.div(P)}<div class="ih2" style="margin-bottom:4px">${t.fin}</div><div class="names">${esc(initials(ev).replace("&"," & "))}</div><div class="brand">taklifnoma</div></section>
+  <section class="sec final">${D.div(P)}<div class="ih2" style="margin-bottom:4px">${t.fin}</div><div class="names">${esc(initials(ev).replace("&"," & "))}</div><div class="brand">taklifnoma</div>${ev.opts&&ev.opts.music&&MUSIC[ev.music]&&MUSIC[ev.music].cc?`<div class="brand" style="margin-top:6px;text-transform:none;letter-spacing:0">♪ ${esc(MUSIC[ev.music].n)} · ${esc(MUSIC[ev.music].cc)}</div>`:""}</section>
   </div>`}
 function miniHTML(ev,lang){const t=IT[lang],P=palOf(ev),D=DECO[ev.tpl];
-  return `<div class="inv" data-tpl="${ev.tpl}" style="${palStyle(P)}"><section class="sec hero">${D.hero(P)}<div class="kicker">${t.kinds[ev.kind]}</div><div class="names">${namesHTML(ev,lang)}</div><div class="hero-date">${fmtDate(ev.date)}</div><div class="hero-day">${t.days[wdOf(ev.date)]} · ${esc(ev.time)}</div></section>${D.band(P)}<section class="sec">${D.div(P)}<div class="ih2">${t.dear}</div><p>${esc(fill(txt(ev,"text",lang),ev))}</p></section></div>`}
+  return `<div class="inv" data-tpl="${ev.tpl}" style="${styleOf(ev)}"><section class="sec hero">${D.hero(P)}<div class="kicker">${t.kinds[ev.kind]}</div><div class="names">${namesHTML(ev,lang)}</div><div class="hero-date">${fmtDate(ev.date)}</div><div class="hero-day">${t.days[wdOf(ev.date)]} · ${esc(ev.time)}</div></section>${D.band(P)}<section class="sec">${D.div(P)}<div class="ih2">${t.dear}</div><p>${esc(fill(txt(ev,"text",lang),ev))}</p></section></div>`}
 function printCard(ev,lang,link){const t=IT[lang],P=palOf(ev),D=DECO[ev.tpl];
-  return `<div class="inv a6" data-tpl="${ev.tpl}" style="${palStyle(P)}">
+  return `<div class="inv a6" data-tpl="${ev.tpl}" style="${styleOf(ev)}">
    <div class="safe-line" aria-hidden="true"></div>${D.top(P)}
    <div style="position:relative"><div class="kicker">${t.kinds[ev.kind]}</div><div class="names">${namesHTML(ev,lang)}</div><div class="ps">${t.printText}</div></div>
    <div style="position:relative"><div class="dt">${fmtDate(ev.date)}</div><div class="ps">${t.days[wdOf(ev.date)]}, ${esc(ev.time)} · ${esc(ev.venue)}<br>${esc(ev.addr)}</div></div>
@@ -214,8 +347,9 @@ const SONGS={t1:{ch:[[57,64,69,72],[53,60,65,69],[48,55,60,64],[55,62,67,71]],ms
   t3:{ch:[[50,57,62,65],[46,53,58,62],[53,57,60,65],[48,55,60,64]],ms:420,wave:"triangle",pat:[0,2,3]}};
 const AU={ctx:null,timer:null,step:0,el:null,cur:null};
 function midi(n){return 440*Math.pow(2,(n-69)/12)}
-function stopMusic(){clearInterval(AU.timer);AU.timer=null;if(AU.el)AU.el.pause();AU.cur=null;$$(".music").forEach(b=>b.classList.remove("playing"));$$("[data-play]").forEach(b=>b.textContent="Слушать")}
+function stopMusic(){clearInterval(AU.timer);AU.timer=null;if(AU.el)AU.el.pause();AU.cur=null;$$(".music").forEach(b=>b.classList.remove("playing"));$$(".play[data-play]").forEach(b=>b.textContent="Слушать");$$(".track[data-play]").forEach(b=>b.setAttribute("aria-pressed","false"))}
 function playMusic(id){stopMusic();if(!id||id==="none")return;AU.cur=id;
+  if(MUSIC[id]&&MUSIC[id].u){AU.el=AU.el||new Audio();AU.el.src=MUSIC[id].u;AU.el.loop=true;AU.el.play().catch(()=>toast("Не удалось включить трек. Проверьте интернет."));$$(".music").forEach(b=>b.classList.add("playing"));return}
   if(id==="own"){const url=MEM.audio.url;if(!url){toast("Своя мелодия хранится только в этой сессии демо");return}AU.el=AU.el||new Audio();AU.el.src=url;AU.el.loop=true;AU.el.play().catch(()=>{});$$(".music").forEach(b=>b.classList.add("playing"));return}
   try{if(!AU.ctx){AU.ctx=new(window.AudioContext||window.webkitAudioContext)();const m=AU.ctx.createGain();m.gain.value=.5;const dl=AU.ctx.createDelay();dl.delayTime.value=.33;const fb=AU.ctx.createGain();fb.gain.value=.26;m.connect(AU.ctx.destination);m.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(AU.ctx.destination);AU.master=m}
     AU.ctx.resume();const S2=SONGS[id];AU.step=0;
@@ -262,7 +396,7 @@ function getEv(id){return S.events.find(e=>e.id===id)}
 
 function header(){return `<header class="hdr gut"><div class="container"><a class="logo" href="#/">Taklif<span>noma</span></a>
   <div class="hdr-r"><span class="demo-tag">демо</span><a class="btn sm ghost" href="#/templates">Шаблоны</a>${S.user?`<a class="btn sm ghost" href="#/app">Мои приглашения</a>`:`<a class="btn sm" href="#/login">Войти</a>`}</div></div></header>`}
-function footer(){return `<footer class="foot gut"><div class="container"><span>Демо-версия. Данные хранятся только в этом браузере, оплата и SMS имитируются. Орнаменты: каталог TBC Ornaments.</span><button type="button" class="linkbtn" id="resetDemo">Сбросить демо</button></div></footer>`}
+function footer(){return `<footer class="foot gut"><div class="container"><span>Демо-версия. Данные хранятся только в этом браузере, оплата и SMS имитируются. Орнаменты: TBC Ornaments. Иллюстрации и записи: Wikimedia Commons (общественное достояние, CC0, CC BY — Kevin MacLeod, incompetech.com).</span><button type="button" class="linkbtn" id="resetDemo">Сбросить демо</button></div></footer>`}
 
 function render(){
   const r=parseRoute(),root=$("#root");
@@ -300,7 +434,7 @@ function newEvent(o){o=o||{};const tpl=LAY[o.tpl]?o.tpl:"suzani";const pal=(LAY[
   dress:{uz:"Klassik uslub. Iltimos, oq rangli kiyimdan saqlaning.",ru:"Классический стиль. Пожалуйста, избегайте белого."},dressColors:["#1F2A44","#6B4E3D","#8A9A7B","#B79C7A","#2E2E2E"],
   program:[{time:"17:30",uz:"Mehmonlarni kutib olish",ru:"Встреча гостей"},{time:"18:00",uz:"Kelin-kuyovni kutib olish",ru:"Встреча молодых"},{time:"19:00",uz:"Bazm va raqslar",ru:"Банкет и танцы"},{time:"22:30",uz:"Yakuniy so’z",ru:"Завершение вечера"}],
   contacts:[{label:"Kuyov tomoni / Сторона жениха",name:"Botir",phone:"+998 90 123 45 67"},{label:"Kelin tomoni / Сторона невесты",name:"Nodira",phone:"+998 93 765 43 21"}],
-  slug:"jasur-madina",rsvpBy:"2026-11-15",photos:[],music:"t1",opts:{music:true,print:false,wishes:true},gift:{on:false,holder:"",card:""},musicAgree:false,
+  slug:"jasur-madina",rsvpBy:"2026-11-15",photos:[],music:LAY[tpl].music[0],font:LAY[tpl].fonts[0],opts:{music:true,print:false,wishes:true},gift:{on:false,holder:"",card:""},musicAgree:false,
   paid:{base:false,photo:false,music:false,print:false},disc:false,rsvps:[],wishes:[],guests:[]}}
 function sampleEv(tpl,pal){return Object.assign(newEvent({tpl,pal}),{wishes:[{name:"Dilnoza",text:"Baxtli bo’linglar! Oilangiz mustahkam bo’lsin.",ts:Date.now()-86400e3},{name:"Азиз",text:"Поздравляем! Любви и терпения.",ts:Date.now()-3600e3}]})}
 function langsOf(ev){return ev.langs==="both"?["uz","ru"]:[ev.langs]}
@@ -325,7 +459,7 @@ function vLanding(){
      <div class="row"><a class="btn pri" href="#/login">${ICON.tg} Войти через Telegram</a><a class="btn" href="#/templates">Смотреть шаблоны</a></div>
    </div><div class="thumbs">${th}</div></div>
    <div class="steps3">
-     <div class="panel"><b>1. Соберите</b><span class="muted">5 макетов в нескольких цветах. Шаблон можно сменить в любой момент, данные сохранятся.</span></div>
+     <div class="panel"><b>1. Соберите</b><span class="muted">18 макетов: от сюзане и барокко до роз, тюльпанов и граффити. Цвет, шрифт и музыку можно сменить в любой момент.</span></div>
      <div class="panel"><b>2. Согласуйте и оплатите</b><span class="muted">Бесплатная ссылка-черновик для семьи. После оплаты — ссылка для гостей и QR-код.</span></div>
      <div class="panel"><b>3. Получайте ответы</b><span class="muted">Ответы и пожелания гостей приходят в бот. Список скачивается в Excel.</span></div>
    </div>
@@ -344,7 +478,7 @@ function vCatalog(){
   const list=all.filter(x=>(catStyle==="all"||LAY[x.l].style===catStyle)&&(catColor==="all"||x.p.c===catColor));
   const card=x=>{const e=newEvent({tpl:x.l,pal:x.p.id});return `<a class="cat-card" href="#/t/${x.l}/${x.p.id}"><div class="mini">${miniHTML(e,"uz")}</div><div class="cap"><b>${LAY[x.l].name} · ${x.p.name}</b>${LAY[x.l].isNew?`<span class="pill new">Новинка</span>`:`<span class="swatch-row"><i style="background:${x.p.v.paper}"></i><i style="background:${x.p.v.accent}"></i></span>`}</div></a>`};
   return{html:header()+`<main class="gut"><div class="container page">
-   <div class="page-head"><div><div class="lbl">Каталог</div><h1 class="h2" style="font-size:1.7rem">Шаблоны приглашений</h1><p class="muted" style="margin:6px 0 0">${all.length} вариантов: 5 макетов в нескольких цветах. Подходят для никоха, бешик-тоя и дня рождения.</p></div></div>
+   <div class="page-head"><div><div class="lbl">Каталог</div><h1 class="h2" style="font-size:1.7rem">Шаблоны приглашений</h1><p class="muted" style="margin:6px 0 0">${all.length} вариантов: ${LAY_ORDER.length} макетов в нескольких цветах, у каждого свои шрифты и музыка. Подходят для никоха, бешик-тоя и дня рождения.</p></div></div>
    <div class="stack" style="gap:10px">
     <div class="chips" id="cs">${[["all","Все стили"],...Object.entries(STYLE_NAME)].map(([v,l])=>`<button type="button" class="chip-btn" data-v="${v}" aria-pressed="${catStyle===v}">${l}</button>`).join("")}</div>
     <div class="chips" id="cc">${[["all","Все цвета"],...Object.entries(COLOR_NAME)].map(([v,l])=>`<button type="button" class="chip-btn" data-v="${v}" aria-pressed="${catColor===v}">${l}</button>`).join("")}</div>
@@ -361,6 +495,8 @@ function vTemplate(l,pid){if(!LAY[l])return vCatalog();const L=LAY[l];const ev=s
    <div class="tdetail" style="margin-top:10px"><div class="stack">
      <div><div class="lbl">${STYLE_NAME[L.style]}${L.isNew?" · новинка":""}</div><h1 class="h1" style="font-size:2.6rem">${L.name} · ${P.name}</h1><p class="muted" style="font-size:1.05rem">${L.desc}</p></div>
      <div class="f"><span>Цвет</span><div class="pal-pick">${L.pals.map(p=>`<a class="pal-btn" href="#/t/${l}/${p.id}" aria-pressed="${p.id===P.id}" style="text-decoration:none;color:inherit"><span class="swatch-row"><i style="background:${p.v.paper}"></i><i style="background:${p.v.accent}"></i><i style="background:${p.v.gold}"></i></span>${p.name}</a>`).join("")}</div></div>
+     <div class="grid2"><div class="f"><span>Шрифты на выбор</span><div class="stack" style="gap:6px">${L.fonts.map(fid=>{loadFont(fid);const f=FONTS[fid];return `<div class="font-card" style="font-family:'${f.d}',serif">${f.lat?"Jasur & Madina":"Жасур и Мадина"}<small>${f.n}${f.lat?" · латиница":""}</small></div>`}).join("")}</div></div>
+     <div class="f"><span>Музыка к шаблону</span><div class="stack" style="gap:6px">${L.music.map(m=>`<button type="button" class="track" data-play="${m}"><b>${esc(MUSIC[m].n)}</b><small>${esc(MUSIC[m].d)}</small></button>`).join("")}</div></div></div>
      <div class="panel pad"><div class="h3" style="margin-bottom:10px">Что есть в приглашении</div><ul class="feat">
        <li>Конверт с печатью и музыкой</li><li>Имена и родители с обеих сторон</li><li>Нахорги ош, никох и той — отдельными карточками</li><li>Календарь и «Добавить в календарь»</li><li>Обратный отсчёт</li><li>Карта: Яндекс и Google</li><li>Фото и альбом до 6 фото</li><li>Программа и дресс-код с цветами</li><li>Ответ гостя: приду, с семьёй, не смогу</li><li>Книга пожеланий</li><li>Персональные ссылки по именам гостей</li><li>Узбекский и русский, гость выбирает</li></ul></div>
      <div class="row"><a class="btn pri" href="#/use/${l}/${P.id}">Создать с этим шаблоном</a><span class="muted small">от 250 000 сум · создание и черновик для семьи бесплатно</span></div>
@@ -368,7 +504,7 @@ function vTemplate(l,pid){if(!LAY[l])return vCatalog();const L=LAY[l];const ev=s
    </div>
    <aside><div class="prev-bar"><span class="lbl">Живое демо</span><div class="seg" id="dl">${["uz","ru"].map(x=>`<button type="button" data-v="${x}" aria-pressed="${demoLang===x}">${x.toUpperCase()}</button>`).join("")}</div></div>
      <div class="phone"><div class="scr" id="demoScr">${inviteHTML(ev,demoLang,"demo")}</div></div></aside></div>
-  </div></main>`+footer(),after(){$$("#dl button").forEach(b=>b.onclick=()=>{demoLang=b.dataset.v;render()});bindInvite(ev,true,false,"demo")}}}
+  </div></main>`+footer(),after(){$$("#dl button").forEach(b=>b.onclick=()=>{demoLang=b.dataset.v;render()});bindInvite(ev,true,false,"demo");$$(".track[data-play]").forEach(b=>b.onclick=()=>{if(AU.cur===b.dataset.play)stopMusic();else{playMusic(b.dataset.play);b.setAttribute("aria-pressed","true")}})}}}
 
 function vLogin(){
   if(S.user)return{html:header()+`<main class="gut"><div class="panel auth stack"><div class="h2">Вы уже вошли</div><p class="muted">${esc(S.user.phone)}</p><a class="btn pri" href="#/app">Мои приглашения</a></div></main>`};
@@ -427,6 +563,8 @@ function vEdit(id,step){
      <div class="f"><span>Макет</span><div class="tpl-pick">${LAY_ORDER.map(tp=>{const pal=tp===ev.tpl?ev.pal:LAY[tp].pals[0].id;return `<button type="button" class="tpl-opt" data-tpl="${tp}" aria-pressed="${ev.tpl===tp}"><div class="mini">${miniHTML(Object.assign({},ev,{tpl:tp,pal}),L[0])}</div><div class="cap">${LAY[tp].name}</div></button>`}).join("")}</div>
        <p class="hint">Смена шаблона не стирает введённые данные.</p></div>
      <div class="f"><span>Цвет</span><div class="pal-pick">${LAY[ev.tpl].pals.map(p=>`<button type="button" class="pal-btn" data-pal="${p.id}" aria-pressed="${ev.pal===p.id}"><span class="swatch-row"><i style="background:${p.v.paper}"></i><i style="background:${p.v.accent}"></i><i style="background:${p.v.gold}"></i></span>${p.name}</button>`).join("")}</div></div>
+     <div class="f"><span>Шрифт</span><div class="font-pick">${fontChoices(ev).map(fid=>{loadFont(fid);const f=FONTS[fid];return `<button type="button" class="font-card" data-font="${fid}" aria-pressed="${fontOf(ev).id===fid}" style="font-family:'${f.d}',serif">${esc(f.lat?latin(ev):title(ev))}<small>${f.n}${LAY[ev.tpl].fonts.includes(fid)?" · для этого шаблона":""}${f.lat?" · только латиница":""}</small></button>`}).join("")}</div>
+       <button type="button" class="linkbtn" id="moreFonts" style="justify-self:start">${S.allFonts?"Показать только подходящие":"Показать все шрифты"}</button></div>
      <div class="f"><span>Язык приглашения</span><div class="seg" data-seg="langs">${[["uz","Узбекский"],["ru","Русский"],["both","Оба, гость выбирает"]].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${ev.langs===v}">${l}</button>`).join("")}</div></div>`,
    ()=>`<div class="grid2"><label class="f"><span>${ev.kind==="wedding"?"Имя жениха":ev.kind==="beshik"?"Имя малыша":"Имя именинника"}</span><input type="text" data-k="g" value="${esc(ev.g)}" maxlength="24"></label>
       ${ev.kind==="wedding"?`<label class="f"><span>Имя невесты</span><input type="text" data-k="b" value="${esc(ev.b)}" maxlength="24"></label>`:"<div></div>"}</div>
@@ -452,7 +590,9 @@ function vEdit(id,step){
      <div class="paid-box"><div class="top"><div><b>Музыка</b><div class="small muted">Включается, когда гость открывает конверт</div></div><span class="price-tag">+50 000 сум</span></div>
        <div class="radio-list">
         <label><input type="radio" name="mus" value="none" ${ev.music==="none"?"checked":""}>Без музыки</label>
-        ${TRACKS.map(t=>`<label><input type="radio" name="mus" value="${t.id}" ${ev.music===t.id?"checked":""}><span><b>${t.name}</b> <span class="small muted">· ${t.desc}</span></span><button type="button" class="btn sm play" data-play="${t.id}">Слушать</button></label>`).join("")}
+        <div class="lbl" style="margin-top:6px">Подобрано к шаблону «${LAY[ev.tpl].name}»</div>
+        ${LAY[ev.tpl].music.map(trackRow(ev)).join("")}
+        <details ${LAY[ev.tpl].music.includes(ev.music)||ev.music==="none"||ev.music==="own"?"":"open"}><summary class="small" style="cursor:pointer;padding:6px 0">Вся библиотека · ${Object.keys(MUSIC).length} треков</summary><div class="radio-list" style="margin-top:6px">${Object.keys(MUSIC).filter(m=>!LAY[ev.tpl].music.includes(m)).map(trackRow(ev)).join("")}</div></details>
         <label><input type="radio" name="mus" value="own" ${ev.music==="own"?"checked":""}><span><b>Своя мелодия</b> <span class="small muted">· mp3 или m4a до 10 МБ</span></span></label></div>
        <div id="ownBox" ${ev.music==="own"?"":"hidden"} class="stack" style="gap:10px">
         <div class="row"><label class="btn sm" for="audIn">${MEM.audio.name?"Заменить файл":"Выбрать файл"}</label><input type="file" id="audIn" accept="audio/*" hidden><span class="small">${esc(MEM.audio.name||ev.ownName||"Файл не выбран")}</span></div>
@@ -490,7 +630,9 @@ function vEdit(id,step){
     $$("[data-step]").forEach(b=>b.onclick=()=>go(`/edit/${ev.id}/${b.dataset.step}`));
     $$("[data-seg]").forEach(sg=>$$("button",sg).forEach(b=>b.onclick=()=>{const k=sg.dataset.seg;ev[k]=b.dataset.v;if(k==="kind"){ev.text={uz:PRESET[ev.kind].uz,ru:PRESET[ev.kind].ru};if(ev.kind!=="wedding")ev.b="";else if(!ev.b)ev.b="Madina"}save();render()}));
     $$("[data-prevlang] button").forEach(b=>b.onclick=()=>{prevLang=b.dataset.v;$$("[data-prevlang] button").forEach(x=>x.setAttribute("aria-pressed",x===b));refresh()});
-    $$(".tpl-opt").forEach(b=>b.onclick=()=>{if(ev.tpl!==b.dataset.tpl){ev.tpl=b.dataset.tpl;ev.pal=LAY[ev.tpl].pals[0].id}save();render()});
+    $$(".tpl-opt").forEach(b=>b.onclick=()=>{if(ev.tpl!==b.dataset.tpl){const old=LAY[ev.tpl];ev.tpl=b.dataset.tpl;ev.pal=LAY[ev.tpl].pals[0].id;ev.font=LAY[ev.tpl].fonts[0];if(!ev.music||old.music.includes(ev.music))ev.music=LAY[ev.tpl].music[0]}save();render()});
+    $$("[data-font]").forEach(b=>b.onclick=()=>{ev.font=b.dataset.font;save();render()});
+    const mf=$("#moreFonts");if(mf)mf.onclick=()=>{S.allFonts=!S.allFonts;save();render()};
     $$("[data-pal]").forEach(b=>b.onclick=()=>{ev.pal=b.dataset.pal;save();render()});
     $$("[data-on]").forEach(c=>c.onchange=()=>{ev.extra[c.dataset.on].on=c.checked;save();render()});
     const ap=$("#addProg");if(ap)ap.onclick=()=>{ev.program.push({time:"",uz:"",ru:""});save();render()};
@@ -514,6 +656,9 @@ function vEdit(id,step){
       const close=()=>{l.innerHTML=""};$("#ovc").onclick=close;$("#ov").onclick=e=>{if(e.target.id==="ov")close()};$$("[data-ml] button").forEach(b=>b.onclick=()=>{prevLang=b.dataset.v;$("#ovb").innerHTML=inviteHTML(ev,prevLang,"mob");$$("[data-ml] button").forEach(x=>x.setAttribute("aria-pressed",x===b));bindInvite(ev,true,false,"mob");tickAll()});bindInvite(ev,true,false,"mob");tickAll()};
     bindInvite(ev,true,false,"prev");
   }}}
+function trackRow(ev){return m=>`<label><input type="radio" name="mus" value="${m}" ${ev.music===m?"checked":""}><span><b>${esc(MUSIC[m].n)}</b><br><span class="small muted">${esc(MUSIC[m].d)}</span></span><button type="button" class="btn sm play" data-play="${m}">Слушать</button></label>`}
+function fontChoices(ev){const own=LAY[ev.tpl].fonts;return S.allFonts?own.concat(Object.keys(FONTS).filter(f=>!own.includes(f))):own}
+function latin(ev){return ev.kind==="wedding"?`${ev.g||"Jasur"} & ${ev.b||"Madina"}`:(ev.g||"Jasur")}
 function shrink(f){return new Promise((res,rej)=>{const rd=new FileReader();rd.onerror=rej;rd.onload=()=>{const im=new Image();im.onerror=rej;im.onload=()=>{const W=720,sc=Math.min(1,W/im.width),c=document.createElement("canvas");c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.75))};im.src=rd.result};rd.readAsDataURL(f)})}
 
 /* ----- checkout & payment ----- */
@@ -651,8 +796,8 @@ function vGuest(code){const pub=dec(code||"");
    <div class="guest-top">${S.user&&local?`<a href="#/event/${ev.id}" style="color:inherit">${ICON.back} Кабинет организатора</a>`:`<span style="opacity:.6">taklifnoma</span>`}
     ${L.length>1?`<div class="lang-sw" id="gl">${L.map(l=>`<button type="button" data-v="${l}" aria-pressed="${l===gLang}" style="color:inherit">${l.toUpperCase()}</button>`).join("")}</div>`:""}</div>
    <div class="guest-card">${inviteHTML(ev,gLang,"g")}</div></div>
-   ${hasMusic?`<div class="inv" data-tpl="${ev.tpl}" style="${palStyle(P)};position:static;overflow:visible;background:none"><button type="button" class="music" id="gm" aria-label="Музыка" ${showCover?"hidden":""}>${ICON.note}</button></div>`:""}
-   ${showCover?`<div class="inv cover" data-tpl="${ev.tpl}" id="cover" style="${palStyle(P)};background:${P.v.ground};position:fixed;overflow:hidden"><div class="env"><div class="flap top"></div><div class="flap bot"></div>${DECO[ev.tpl].seal(ev)}<div class="env-text"><div class="kicker">${t.envKicker}</div><div class="to">${ev.to?t.hello(esc(ev.to)):t.envTo}</div><button type="button" class="ibtn solid" id="openEnv">${t.open}</button></div></div></div>`:""}`,
+   ${hasMusic?`<div class="inv" data-tpl="${ev.tpl}" style="${styleOf(ev)};position:static;overflow:visible;background:none"><button type="button" class="music" id="gm" aria-label="Музыка" ${showCover?"hidden":""}>${ICON.note}</button></div>`:""}
+   ${showCover?`<div class="inv cover" data-tpl="${ev.tpl}" id="cover" style="${styleOf(ev)};background:${P.v.ground};position:fixed;overflow:hidden"><div class="env"><div class="flap top"></div><div class="flap bot"></div>${DECO[ev.tpl].seal(ev,P)}<div class="env-text"><div class="kicker">${t.envKicker}</div><div class="to">${ev.to?t.hello(esc(ev.to)):t.envTo}</div><button type="button" class="ibtn solid" id="openEnv">${t.open}</button></div></div></div>`:""}`,
    after(){
     $$("#gl button").forEach(b=>b.onclick=()=>{gLang=b.dataset.v;const pl=AU.cur;render();if(pl)playMusic(pl)});
     const oe=$("#openEnv");if(oe)oe.onclick=()=>{coverShown[ck]=1;const c=$("#cover");c.classList.add("opening");setTimeout(()=>c.remove(),matchMedia("(prefers-reduced-motion: reduce)").matches?0:1200);const gm=$("#gm");if(gm){gm.hidden=false;playMusic(ev.music)}};
